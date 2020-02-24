@@ -9,6 +9,7 @@ target 'RTR-iOS' do
 
   # Pods for RTR-iOS
   pod 'Colours', '~> 5.13.0'
+  pod 'Masonry', '~> 1.1.0'
   # pod 'ReactiveObjC', '~> 3.1.0'
   # pod 'SDWebImage', '~> 5.0'
   # pod 'YBImageBrowser'

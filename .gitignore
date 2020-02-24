@@ -16,6 +16,7 @@ DerivedData/
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+RTR-iOS.xcodeproj/xcuserdata/*
 
 *.DS_Store
 
