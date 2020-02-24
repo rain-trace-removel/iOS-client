@@ -19,6 +19,9 @@
 		A09B9E5B2400BBB10038583E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E5A2400BBB10038583E /* main.m */; };
 		A09B9E652400BBB10038583E /* RTR_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E642400BBB10038583E /* RTR_iOSTests.m */; };
 		A09B9E702400BBB10038583E /* RTR_iOSUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E6F2400BBB10038583E /* RTR_iOSUITests.m */; };
+		A09B9E862403E7890038583E /* UINavigationController+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E852403E7890038583E /* UINavigationController+Base.m */; };
+		A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E872403E8B20038583E /* RTRNavigationController.m */; };
+		A09B9E8B2403EB450038583E /* RTRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E8A2403EB450038583E /* RTRTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,12 @@
 		A09B9E6B2400BBB10038583E /* RTR-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RTR-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09B9E6F2400BBB10038583E /* RTR_iOSUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTR_iOSUITests.m; sourceTree = "<group>"; };
 		A09B9E712400BBB10038583E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A09B9E842403E7890038583E /* UINavigationController+Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Base.h"; sourceTree = "<group>"; };
+		A09B9E852403E7890038583E /* UINavigationController+Base.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Base.m"; sourceTree = "<group>"; };
+		A09B9E872403E8B20038583E /* RTRNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTRNavigationController.m; sourceTree = "<group>"; };
+		A09B9E892403E8C90038583E /* RTRNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRNavigationController.h; sourceTree = "<group>"; };
+		A09B9E8A2403EB450038583E /* RTRTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTRTabBarController.m; sourceTree = "<group>"; };
+		A09B9E8C2403EB550038583E /* RTRTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRTabBarController.h; sourceTree = "<group>"; };
 		A8467B24823D43CA41132E19 /* libPods-RTR-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTR-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2409B3BF9AC3CE2B25A2AD /* Pods-RTR-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RTR-iOSTests/Pods-RTR-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +125,6 @@
 				64B4612FD49F903C22AE9F08 /* Pods-RTR-iOSUITests.debug.xcconfig */,
 				88AA4556AD6ED1A2207CA101 /* Pods-RTR-iOSUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,6 +153,13 @@
 		A09B9E472400BBB00038583E /* RTR-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				A09B9E832403E5740038583E /* RTRNet */,
+				A09B9E822403E56B0038583E /* RTRUtils */,
+				A09B9E812403E5650038583E /* RTRBase */,
+				A09B9E802403E52D0038583E /* RTRView */,
+				A09B9E7F2403E4FE0038583E /* RTRModel */,
+				A09B9E7E2403E4F50038583E /* RTRViewModel */,
+				A09B9E7D2403E3DF0038583E /* RTRViewController */,
 				A09B9E482400BBB00038583E /* AppDelegate.h */,
 				A09B9E492400BBB00038583E /* AppDelegate.m */,
 				A09B9E4B2400BBB00038583E /* SceneDelegate.h */,
@@ -176,6 +191,61 @@
 				A09B9E712400BBB10038583E /* Info.plist */,
 			);
 			path = "RTR-iOSUITests";
+			sourceTree = "<group>";
+		};
+		A09B9E7D2403E3DF0038583E /* RTRViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A09B9E892403E8C90038583E /* RTRNavigationController.h */,
+				A09B9E872403E8B20038583E /* RTRNavigationController.m */,
+				A09B9E8C2403EB550038583E /* RTRTabBarController.h */,
+				A09B9E8A2403EB450038583E /* RTRTabBarController.m */,
+			);
+			path = RTRViewController;
+			sourceTree = "<group>";
+		};
+		A09B9E7E2403E4F50038583E /* RTRViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RTRViewModel;
+			sourceTree = "<group>";
+		};
+		A09B9E7F2403E4FE0038583E /* RTRModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RTRModel;
+			sourceTree = "<group>";
+		};
+		A09B9E802403E52D0038583E /* RTRView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RTRView;
+			sourceTree = "<group>";
+		};
+		A09B9E812403E5650038583E /* RTRBase */ = {
+			isa = PBXGroup;
+			children = (
+				A09B9E842403E7890038583E /* UINavigationController+Base.h */,
+				A09B9E852403E7890038583E /* UINavigationController+Base.m */,
+			);
+			path = RTRBase;
+			sourceTree = "<group>";
+		};
+		A09B9E822403E56B0038583E /* RTRUtils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RTRUtils;
+			sourceTree = "<group>";
+		};
+		A09B9E832403E5740038583E /* RTRNet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RTRNet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,9 +450,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */,
 				A09B9E502400BBB00038583E /* ViewController.m in Sources */,
 				A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */,
+				A09B9E8B2403EB450038583E /* RTRTabBarController.m in Sources */,
 				A09B9E5B2400BBB10038583E /* main.m in Sources */,
+				A09B9E862403E7890038583E /* UINavigationController+Base.m in Sources */,
 				A09B9E4D2400BBB00038583E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

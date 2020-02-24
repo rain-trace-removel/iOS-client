@@ -1,5 +1,5 @@
 #import "SceneDelegate.h"
-#import "ViewController.h"
+#import "RTRViewController/RTRNavigationController.h"
 
 @interface SceneDelegate ()
 
@@ -11,7 +11,7 @@
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
-    ViewController *navViewController = [[ViewController alloc] init];
+    RTRNavigationController *navViewController = [[RTRNavigationController alloc] init];
     self.window.rootViewController = navViewController;
     [self.window makeKeyAndVisible];
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
