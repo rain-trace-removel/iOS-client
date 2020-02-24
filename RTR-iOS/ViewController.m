@@ -16,8 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupView];
     // Do any additional setup after loading the view.
 }
 
+# pragma mark private
+- (void)setupView {
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+}
 
 @end
