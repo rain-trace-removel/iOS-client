@@ -10,6 +10,10 @@
 		022538A3C4137D6B242C6201 /* libPods-RTR-iOSUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 282908F2A46A00ABC5F97F0B /* libPods-RTR-iOSUITests.a */; };
 		71B8C3BF86F96FCE0343FB74 /* libPods-RTR-iOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 700749D972A229B25D328E25 /* libPods-RTR-iOSTests.a */; };
 		7A039C030B4F859B6E23EAF2 /* libPods-RTR-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A8467B24823D43CA41132E19 /* libPods-RTR-iOS.a */; };
+		A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */; };
+		A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AF224051F45005DBD08 /* UserPageViewController.m */; };
+		A0927AF7240E5223005DBD08 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AF6240E5223005DBD08 /* MainPageViewController.m */; };
+		A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AFB240F4059005DBD08 /* RTRTabBarItem.m */; };
 		A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E492400BBB00038583E /* AppDelegate.m */; };
 		A09B9E4D2400BBB00038583E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E4C2400BBB00038583E /* SceneDelegate.m */; };
 		A09B9E502400BBB00038583E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E4F2400BBB00038583E /* ViewController.m */; };
@@ -49,6 +53,15 @@
 		700749D972A229B25D328E25 /* libPods-RTR-iOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTR-iOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88AA4556AD6ED1A2207CA101 /* Pods-RTR-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-RTR-iOSUITests/Pods-RTR-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		91F583C1482B341410EE8443 /* Pods-RTR-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOS.release.xcconfig"; path = "Target Support Files/Pods-RTR-iOS/Pods-RTR-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		A0927AEE24051D46005DBD08 /* UITabBarController+Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+Base.h"; sourceTree = "<group>"; };
+		A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Base.m"; sourceTree = "<group>"; };
+		A0927AF224051F45005DBD08 /* UserPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPageViewController.m; sourceTree = "<group>"; };
+		A0927AF424051F53005DBD08 /* UserPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserPageViewController.h; sourceTree = "<group>"; };
+		A0927AF6240E5223005DBD08 /* MainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageViewController.m; sourceTree = "<group>"; };
+		A0927AF8240E5230005DBD08 /* MainPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageViewController.h; sourceTree = "<group>"; };
+		A0927AF9240EB611005DBD08 /* RTRDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRDefine.h; sourceTree = "<group>"; };
+		A0927AFB240F4059005DBD08 /* RTRTabBarItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTRTabBarItem.m; sourceTree = "<group>"; };
+		A0927AFD240F407B005DBD08 /* RTRTabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRTabBarItem.h; sourceTree = "<group>"; };
 		A09B9E452400BBB00038583E /* RTR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RTR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A09B9E482400BBB00038583E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A09B9E492400BBB00038583E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -128,6 +141,35 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A0927AF124051F22005DBD08 /* UserPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0927AF424051F53005DBD08 /* UserPageViewController.h */,
+				A0927AF224051F45005DBD08 /* UserPageViewController.m */,
+			);
+			path = UserPage;
+			sourceTree = "<group>";
+		};
+		A0927AF5240E5211005DBD08 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0927AF8240E5230005DBD08 /* MainPageViewController.h */,
+				A0927AF6240E5223005DBD08 /* MainPageViewController.m */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		A0927AFA240F3FF4005DBD08 /* RTRTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				A0927AEE24051D46005DBD08 /* UITabBarController+Base.h */,
+				A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */,
+				A0927AFD240F407B005DBD08 /* RTRTabBarItem.h */,
+				A0927AFB240F4059005DBD08 /* RTRTabBarItem.m */,
+			);
+			path = RTRTabBar;
+			sourceTree = "<group>";
+		};
 		A09B9E3C2400BBAF0038583E = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +238,8 @@
 		A09B9E7D2403E3DF0038583E /* RTRViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A0927AF5240E5211005DBD08 /* MainPage */,
+				A0927AF124051F22005DBD08 /* UserPage */,
 				A09B9E892403E8C90038583E /* RTRNavigationController.h */,
 				A09B9E872403E8B20038583E /* RTRNavigationController.m */,
 				A09B9E8C2403EB550038583E /* RTRTabBarController.h */,
@@ -228,8 +272,10 @@
 		A09B9E812403E5650038583E /* RTRBase */ = {
 			isa = PBXGroup;
 			children = (
+				A0927AFA240F3FF4005DBD08 /* RTRTabBar */,
 				A09B9E842403E7890038583E /* UINavigationController+Base.h */,
 				A09B9E852403E7890038583E /* UINavigationController+Base.m */,
+				A0927AF9240EB611005DBD08 /* RTRDefine.h */,
 			);
 			path = RTRBase;
 			sourceTree = "<group>";
@@ -450,6 +496,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0927AF7240E5223005DBD08 /* MainPageViewController.m in Sources */,
+				A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */,
+				A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */,
+				A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */,
 				A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */,
 				A09B9E502400BBB00038583E /* ViewController.m in Sources */,
 				A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */,
@@ -627,12 +677,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8YQLH6SF7;
 				INFOPLIST_FILE = "RTR-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "chenbb6.RTR-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "chenbb6.RTR-iOS.WY9CLumGeHvfIifo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -644,12 +695,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8YQLH6SF7;
 				INFOPLIST_FILE = "RTR-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "chenbb6.RTR-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "chenbb6.RTR-iOS.WY9CLumGeHvfIifo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
