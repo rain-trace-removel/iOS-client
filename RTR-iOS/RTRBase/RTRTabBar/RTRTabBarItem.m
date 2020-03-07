@@ -57,7 +57,7 @@
     // tabbar文字
     self.buttonLabel = [[UILabel alloc] init];
     [self.buttonLabel setText:tag];
-    [self.buttonLabel setFont:[UIFont systemFontOfSize:13]];
+    [self.buttonLabel setFont:[UIFont systemFontOfSize:12]];
     [self addSubview:self.buttonLabel];
     
     [self.buttonLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -76,11 +76,14 @@
 }
 
 - (void)tapEvent:(UITapGestureRecognizer *)gesture {
-    NSLog(@"tapEvent: %@", self.tabBarTag);
-    // todo:添加震动反馈
-    
     // todo:添加点击动画
-    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.buttonIcon.transform = CGAffineTransformMakeScale(1.5, 1.5);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.buttonIcon.transform = CGAffineTransformMakeScale(1, 1);
+        }];
+    }];
     // RTRTabBarItemDelegate
     if ([_delegate respondsToSelector:@selector(didSelectedTabBarItemAtIndex:WithTag:)]) {
         [_delegate didSelectedTabBarItemAtIndex:self.tabBarIndex WithTag:self.tabBarTag ];

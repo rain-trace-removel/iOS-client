@@ -74,15 +74,20 @@
         [self.RTRTabBar addSubview:tabBarItem];
     }
     self.RTRTabBarItemArray = mArr;
-    NSLog(@"reload view: %@, %@", self.tabBarItemTags, self.tabBarItemImages);
+    NSLog(@"[cbb]reload view: %@, %@", self.tabBarItemTags, self.tabBarItemImages);
     
 }
 
 #pragma mark RTRTabBarItemDelegate
 
 - (void)didSelectedTabBarItemAtIndex:(NSUInteger)index WithTag:(NSString *)tag {
-    NSLog(@"didSelectedTabBarItemWithTag:%@", tag);
-    NSLog(@"RTRTabBarItemArray:%@", self.RTRTabBarItemArray);
+    NSLog(@"[cbb]didSelectedTabBarItemWithTag:%@", tag);
+    NSLog(@"[cbb]RTRTabBarItemArray:%@", self.RTRTabBarItemArray);
+    // 点击震动触觉反馈
+    if (@available(iOS 11.0, *)) {
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+        [feedBackGenertor impactOccurred];
+    }
     // tabbar item 选择
     for (RTRTabBarItem *selectedTabBarItem in self.RTRTabBarItemArray) {
         if (selectedTabBarItem.tag == index) {

@@ -10,12 +10,13 @@
 
 @implementation UIView (Location)
 
-- (CGFloat)left {
-    return self.frame.origin.x;
-}
-
 - (CGFloat)centerX {
     return self.frame.origin.x + self.frame.size.width/2;
+
+}
+
+- (void)setCenterX:(CGFloat)centerX {
+    [self setCenter:CGPointMake(centerX - self.frame.size.width/2, self.frame.origin.y + self.frame.size.height/2)];
 }
 
 @end

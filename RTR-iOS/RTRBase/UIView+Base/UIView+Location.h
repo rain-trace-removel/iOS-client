@@ -12,8 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIView (Location)
 
-- (CGFloat)left;
-- (CGFloat)centerX;
+@property(nonatomic, assign) CGFloat centerX;
 
 @end
 
