@@ -41,8 +41,8 @@
     // 计算位置与大小
     CGFloat tabBarItemHeight = frame.size.height;
     CGFloat tabBarItemWidth = frame.size.width;
-    CGFloat iconWidth = 32;
-    CGFloat iconHeight = 32;
+    CGFloat iconWidth = 24;
+    CGFloat iconHeight = 24;
     CGFloat iconX = (tabBarItemWidth - iconWidth)/2;
     CGFloat iconY = (tabBarItemHeight - iconHeight)/4;
     

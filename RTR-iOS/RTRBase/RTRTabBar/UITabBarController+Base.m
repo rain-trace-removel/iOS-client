@@ -8,7 +8,9 @@
 
 #import "UITabBarController+Base.h"
 #import "../RTRDefine.h"
+#import "Colours.h"
 #import <objc/runtime.h>
+#import "UIView+Shadow.h"
 
 @implementation UITabBarController (Base)
 
@@ -34,6 +36,11 @@
 
     [self.RTRTabBar setBackgroundColor:[UIColor whiteColor]];
     [self.RTRTabBar.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    // TabBar 顶部阴影
+    [UIView addTopSideShadowToView:self.RTRTabBar withColor:[UIColor grayColor]];
+    
+    // TabBarItem 添加
     NSUInteger tabBarItemNum = self.tabBarItemTags.count;
     CGFloat tabBarItemHeight = TABBAR_HEIGHT;
     CGFloat tabBarItemWidth = SCREEN_WIDTH / tabBarItemNum;

@@ -29,10 +29,7 @@
 - (void)setupView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.tabBar setHidden:YES];
-//    [self.tabBarItemTags setArray:@[@"a", @"b"]];
-//    self.tabBarItemTags = [NSMutableArray arrayWithArray:@[@"a", @"b"]];
-    [self reloadViewWithTags:@[@"首页", @"我的"] Images:@[@"icon_home_page", @"icon_user_page"] VCArray:@[self.mainPageVC, self.userPageVC]];
-//    [self.tabBarItemTags addObject:@"a"];
+    [self reloadViewWithTags:@[@"首页", @"编辑", @"我的"] Images:@[@"icon_home_page", @"icon_edit_page", @"icon_user_page"] VCArray:@[self.mainPageVC, self.mainPageVC, self.userPageVC]];
 }
 
 # pragma mark Getter&Setter

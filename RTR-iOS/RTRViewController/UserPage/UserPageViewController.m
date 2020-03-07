@@ -16,7 +16,7 @@
 @implementation UserPageViewController
 
 - (void)viewDidLoad {
-    [self.view setBackgroundColor:[UIColor blueColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 @end
