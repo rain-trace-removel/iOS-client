@@ -9,6 +9,7 @@
 #import "RTRTabBarItem.h"
 #import "Colours.h"
 #import "Masonry/Masonry.h"
+#import "UIView+Shadow.h"
 
 @interface RTRTabBarItem()
 
@@ -45,6 +46,8 @@
     CGFloat iconHeight = 24;
     CGFloat iconX = (tabBarItemWidth - iconWidth)/2;
     CGFloat iconY = (tabBarItemHeight - iconHeight)/4;
+    
+
     
     // tabbar图标
     self.buttonIcon = [[UIImageView alloc] initWithFrame:CGRectMake(iconX, iconY, iconWidth, iconHeight)];

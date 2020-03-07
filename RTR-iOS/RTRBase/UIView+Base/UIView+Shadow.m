@@ -28,7 +28,7 @@
     theView.layer.shadowColor = theColor.CGColor;
     theView.layer.shadowOffset = CGSizeMake(0,0);
     theView.layer.shadowOpacity = 0.5;
-    theView.layer.shadowRadius = 5;
+    theView.layer.shadowRadius = 10;
     // 单边阴影 顶边
     float shadowPathWidth = theView.layer.shadowRadius;
     CGRect shadowRect = CGRectMake(0, 0-shadowPathWidth/2.0, theView.bounds.size.width, shadowPathWidth);

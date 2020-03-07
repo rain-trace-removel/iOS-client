@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSMutableArray *tabBarItemImages;
 @property(nonatomic, copy) NSMutableArray *RTRTabBarItemArray;
 @property(nonatomic, copy) NSMutableArray *tabPageVCArray;
+@property(nonatomic, strong) UIView *whiteBlock;
 
 
 - (void)reloadViewWithTags:(NSMutableArray *)tags Images:(NSMutableArray *)images VCArray:(NSMutableArray *)VCArray;
