@@ -11,15 +11,17 @@
 #import "Masonry/Masonry.h"
 #import "Colours.h"
 #import "UIViewController+BackButtonHandler.h"
+#import "RTRDefine.h"
 
 @interface LoginPageViewController()
 
-@property(nonatomic, strong) LoginPageViewModel *loginPageViewModel;
-
+@property(nonatomic, strong) UIImageView *appIcon;
 @property(nonatomic, strong) UIButton *loginButton;
 @property(nonatomic, strong) UILabel *loginTitleLabel;
 @property(nonatomic, strong) UITextField *usernameInput;
 @property(nonatomic, strong) UITextField *passwordInput;
+@property(nonatomic, strong) UITextField *againPasswordInput;
+@property(nonatomic, strong) UISegmentedControl *loginStyleSwitchButton;
 
 @end
 
@@ -35,20 +37,94 @@
 }
 
 - (void)viewDidLoad {
-    [self reloadViewModel];
-}
-
-- (void)reloadViewModel {
-    // reload userPageViewModel
-    
-    [self setupView];
-}
-
-- (void)setupView {
-    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.appIcon];
     [self.view addSubview:self.loginTitleLabel];
     [self.view addSubview:self.usernameInput];
     [self.view addSubview:self.passwordInput];
+    [self.view addSubview:self.againPasswordInput];
+    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.loginStyleSwitchButton];
+    [self setupView];
+}
+
+- (void)loadViewModel {
+    // reload userPageViewModel
+    self.loginPageViewModel = [[LoginPageViewModel alloc] init];
+    self.loginPageViewModel.loginStyle = RTRLoginStyleLogin;
+    [self reloadView];
+}
+
+- (void)setupView {
+    [self.appIcon mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).offset(60+STATUS_BAR_HEIGHT+NAVIGATION_BAR_HEIGHT);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(64, 64));
+    }];
+    
+    [self.loginTitleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.appIcon.mas_bottom).offset(30);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width, 30));
+    }];
+    
+    [self.usernameInput mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.loginTitleLabel.mas_bottom).offset(30);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width-100, 35));
+    }];
+    
+    [self.passwordInput mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.usernameInput.mas_bottom).offset(30);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width-100, 35));
+    }];
+    
+    [self.againPasswordInput setHidden:YES];
+    
+    [self.loginButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.passwordInput.mas_bottom).offset(30);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width-100, 35));
+    }];
+    
+    [self.loginStyleSwitchButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.passwordInput.mas_bottom).offset(180);
+        make.centerX.equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(150, 35));
+    }];
+}
+
+- (void)reloadView {
+    if (self.loginPageViewModel.loginStyle == RTRLoginStyleLogin) {
+        [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.againPasswordInput setHidden:YES];
+             [self.loginButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                 make.top.equalTo(self.passwordInput.mas_bottom).offset(30);
+                 make.centerX.equalTo(self.view);
+                 make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width-100, 35));
+             }];
+            [self.view layoutIfNeeded];
+        }];
+       
+    } else {
+        [self.loginButton setTitle:@"注册" forState:UIControlStateNormal];
+        [UIView animateWithDuration:0.3 animations:^{
+           [self.againPasswordInput mas_remakeConstraints:^(MASConstraintMaker *make) {
+               make.top.equalTo(self.passwordInput.mas_bottom).offset(30);
+               make.centerX.equalTo(self.view);
+               make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width-100, 35));
+           }];
+           [self.loginButton mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.againPasswordInput.mas_bottom).offset(30);
+                make.centerX.equalTo(self.view);
+                make.size.mas_equalTo(CGSizeMake(self.view.frame.size.width-100, 35));
+            }];
+           [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.againPasswordInput setHidden:NO];
+        }];
+    }
 }
 
 #pragma mark BackButtonHandlerProtocol
@@ -59,23 +135,40 @@
     return YES;
 }
 
+#pragma mark SenderAction
+
+-(void)indexDidChangeForSegmentedControl:(UISegmentedControl *)sender {
+    NSInteger selecIndex = sender.selectedSegmentIndex;
+    switch (selecIndex) {
+        case 0:
+            self.loginPageViewModel.loginStyle = RTRLoginStyleLogin;
+            break;
+        case 1:
+            self.loginPageViewModel.loginStyle = RTRLoginStyleRegister;
+            break;
+        default:
+            break;
+    }
+    [self reloadView];
+}
+
 
 #pragma mark Getter & Setter
 
 - (UILabel *)loginTitleLabel {
     if(_loginTitleLabel == nil){
-        _loginTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 30)];
+        _loginTitleLabel = [[UILabel alloc] init];
         _loginTitleLabel.textColor = [UIColor blackColor];
         _loginTitleLabel.textAlignment = NSTextAlignmentCenter;
         _loginTitleLabel.font = [UIFont systemFontOfSize:20];
-        [_loginTitleLabel setText:@"登陆你的头条，掌握昨日信息"];
+        [_loginTitleLabel setText:@"登陆你的Keepic，编辑更精彩影像"];
     }
     return _loginTitleLabel;
 }
 
 - (UITextField *)usernameInput {
     if(_usernameInput == nil){
-        _usernameInput = [[UITextField alloc] initWithFrame:CGRectMake(50, 160, self.view.frame.size.width - 100, 35)];
+        _usernameInput = [[UITextField alloc] init];
         _usernameInput.borderStyle = UITextBorderStyleRoundedRect;
         _usernameInput.font = [UIFont systemFontOfSize:14];
         _usernameInput.layer.cornerRadius = 17.5;
@@ -96,7 +189,7 @@
 
 - (UITextField *)passwordInput {
     if(_passwordInput == nil){
-        _passwordInput = [[UITextField alloc] initWithFrame:CGRectMake(50, 220, self.view.frame.size.width - 100, 35)];
+        _passwordInput = [[UITextField alloc] init];
         _passwordInput.borderStyle = UITextBorderStyleRoundedRect;
         _passwordInput.font = [UIFont systemFontOfSize:14];
         _passwordInput.layer.cornerRadius = 17.5;
@@ -117,10 +210,10 @@
 
 - (UIButton *)loginButton {
     if(_loginButton == nil){
-        _loginButton = [[UIButton alloc] initWithFrame:CGRectMake(50, 280, self.view.frame.size.width - 100, 35)];
+        _loginButton = [[UIButton alloc] init];
         [_loginButton setTitle:@"登录" forState:UIControlStateNormal];
         [_loginButton.titleLabel setFont:[UIFont systemFontOfSize:14]];
-        [_loginButton setBackgroundColor: [UIColor infoBlueColor]];
+        [_loginButton setBackgroundColor: [UIColor pastelBlueColor]];
         
         [_loginButton.layer setCornerRadius: 17.5];
         [_loginButton addTarget:self action:@selector(LoginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -128,5 +221,42 @@
     return _loginButton;
 }
 
+- (UIImageView *)appIcon {
+    if (_appIcon == nil) {
+        _appIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_app"]];
+    }
+    return _appIcon;
+}
+
+- (UISegmentedControl *)loginStyleSwitchButton {
+    if (_loginStyleSwitchButton == nil) {
+        _loginStyleSwitchButton = [[UISegmentedControl alloc] initWithItems:@[@"登录", @"注册"]];
+        _loginStyleSwitchButton.tintColor = [UIColor infoBlueColor];
+        _loginStyleSwitchButton.selectedSegmentIndex = 0;
+        [_loginStyleSwitchButton addTarget:self action:@selector(indexDidChangeForSegmentedControl:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _loginStyleSwitchButton;
+}
+
+- (UITextField *)againPasswordInput {
+    if(_againPasswordInput == nil){
+        _againPasswordInput = [[UITextField alloc] init];
+        _againPasswordInput.borderStyle = UITextBorderStyleRoundedRect;
+        _againPasswordInput.font = [UIFont systemFontOfSize:14];
+        _againPasswordInput.layer.cornerRadius = 17.5;
+        _againPasswordInput.layer.masksToBounds = YES;
+        _againPasswordInput.secureTextEntry = YES;
+        [_againPasswordInput.layer setBorderWidth:1];
+        [_againPasswordInput setAutocorrectionType:UITextAutocorrectionTypeNo];
+        [_againPasswordInput setAutocapitalizationType:UITextAutocapitalizationTypeNone];
+        [_againPasswordInput.layer setBorderColor:[[UIColor lightGrayColor] CGColor]];
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.alignment = NSTextAlignmentCenter;
+        NSAttributedString *attri = [[NSAttributedString alloc] initWithString:@"重复密码" attributes:@{NSForegroundColorAttributeName:[UIColor black50PercentColor], NSFontAttributeName:[UIFont systemFontOfSize:14], NSParagraphStyleAttributeName:style}];
+        [_againPasswordInput setAttributedPlaceholder: attri];
+        [_againPasswordInput setTextAlignment: NSTextAlignmentCenter];
+    }
+    return _againPasswordInput;
+}
 
 @end

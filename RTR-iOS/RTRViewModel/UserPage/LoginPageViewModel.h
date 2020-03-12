@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    RTRLoginStyleLogin,
+    RTRLoginStyleRegister,
+} RTRLoginStyle;
+
 @interface LoginPageViewModel : NSObject
+
+@property(nonatomic, assign) RTRLoginStyle loginStyle;
 
 @end

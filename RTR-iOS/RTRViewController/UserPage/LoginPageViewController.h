@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "LoginPageViewModel.h"
 
+
+
 @interface LoginPageViewController:UIViewController
 
-- (instancetype)initWithViewModel: (LoginPageViewModel *)viewModel;
+@property(nonatomic, strong) LoginPageViewModel *loginPageViewModel;
 
+- (instancetype)initWithViewModel: (LoginPageViewModel *)viewModel;
 
 @end
