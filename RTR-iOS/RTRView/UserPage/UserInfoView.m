@@ -63,11 +63,13 @@
     
     [self.userLoginOrIconButton setBackgroundColor:RTRColorFromRGB(0xf38181)];
     [self.userLoginOrIconButton.layer setCornerRadius:BUTTON_HEIGHT/2];
+    [self.userLoginOrIconButton addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.userLoginOrIconButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.backgroundImageView);
         make.top.equalTo(self.backgroundImageView).offset(60);
         make.size.mas_equalTo(CGSizeMake(BUTTON_WIDTH, BUTTON_HEIGHT));
     }];
+    
     
     [self.loginLabel setTextColor:[UIColor whiteColor]];
     [self.loginLabel setFont:[UIFont systemFontOfSize:18]];
@@ -82,6 +84,18 @@
 - (void)reloadUserInfoView {
     
 }
+
+- (void)setBackgroundImg:(UIImage *)image {
+    [self.backgroundImageView setImage:image];
+}
+
+- (void)loginButtonClick:(id)sender {
+    if ([_delegate respondsToSelector:@selector(userDidClickedLoginButton)]) {
+        [_delegate userDidClickedLoginButton];
+    }
+}
+
+#pragma mark Getter&Setter
 
 - (UIImageView *)backgroundImageView {
     if (_backgroundImageView == nil) {

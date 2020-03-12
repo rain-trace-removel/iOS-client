@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../RTRBase/RTRTabBar/UITabBarController+Base.h"
+#import "UITabBarController+Base.h"
 
 @interface RTRTabBarController:UITabBarController
 

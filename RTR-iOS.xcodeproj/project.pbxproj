@@ -17,6 +17,10 @@
 		A0540F0824174DEA009AC5A7 /* UserInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F0724174DEA009AC5A7 /* UserInfoView.m */; };
 		A0540F0B24174E98009AC5A7 /* UserInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F0A24174E98009AC5A7 /* UserInfoModel.m */; };
 		A0540F1024175289009AC5A7 /* RTRUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F0F24175289009AC5A7 /* RTRUserManager.m */; };
+		A0540F13241A1A09009AC5A7 /* RTRImgDerainNet.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F12241A1A09009AC5A7 /* RTRImgDerainNet.m */; };
+		A0540F16241A6AE6009AC5A7 /* LoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F15241A6AE6009AC5A7 /* LoginPageViewController.m */; };
+		A0540F19241A6B80009AC5A7 /* LoginPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F18241A6B80009AC5A7 /* LoginPageViewModel.m */; };
+		A0540F1E241A7183009AC5A7 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F1D241A7183009AC5A7 /* UIViewController+BackButtonHandler.m */; };
 		A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */; };
 		A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AF224051F45005DBD08 /* UserPageViewController.m */; };
 		A0927AF7240E5223005DBD08 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AF6240E5223005DBD08 /* MainPageViewController.m */; };
@@ -73,6 +77,14 @@
 		A0540F0A24174E98009AC5A7 /* UserInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoModel.m; sourceTree = "<group>"; };
 		A0540F0D24175274009AC5A7 /* RTRUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRUserManager.h; sourceTree = "<group>"; };
 		A0540F0F24175289009AC5A7 /* RTRUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTRUserManager.m; sourceTree = "<group>"; };
+		A0540F11241A19F6009AC5A7 /* RTRImgDerainNet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RTRImgDerainNet.h; path = "../../../../../../iOS-workspace/rain-trace-removel/RTR-iOS/RTR-iOS/RTRUtils/RTRNet/RTRImgDerainNet.h"; sourceTree = "<group>"; };
+		A0540F12241A1A09009AC5A7 /* RTRImgDerainNet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RTRImgDerainNet.m; path = "../../../../../../iOS-workspace/rain-trace-removel/RTR-iOS/RTR-iOS/RTRUtils/RTRNet/RTRImgDerainNet.m"; sourceTree = "<group>"; };
+		A0540F14241A6AD1009AC5A7 /* LoginPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPageViewController.h; sourceTree = "<group>"; };
+		A0540F15241A6AE6009AC5A7 /* LoginPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPageViewController.m; sourceTree = "<group>"; };
+		A0540F17241A6B74009AC5A7 /* LoginPageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginPageViewModel.h; sourceTree = "<group>"; };
+		A0540F18241A6B80009AC5A7 /* LoginPageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPageViewModel.m; sourceTree = "<group>"; };
+		A0540F1C241A716B009AC5A7 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		A0540F1D241A7183009AC5A7 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		A0927AEE24051D46005DBD08 /* UITabBarController+Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+Base.h"; sourceTree = "<group>"; };
 		A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Base.m"; sourceTree = "<group>"; };
 		A0927AF224051F45005DBD08 /* UserPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPageViewController.m; sourceTree = "<group>"; };
@@ -159,7 +171,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		A0540EF12413394E009AC5A7 /* UIView+Base */ = {
+		A0540EF12413394E009AC5A7 /* RTRBaseView */ = {
 			isa = PBXGroup;
 			children = (
 				A0540EF6241339BB009AC5A7 /* UIView+Shadow.h */,
@@ -167,7 +179,7 @@
 				A0540EF924134B9D009AC5A7 /* UIView+Location.h */,
 				A0540EFA24134B9D009AC5A7 /* UIView+Location.m */,
 			);
-			path = "UIView+Base";
+			path = RTRBaseView;
 			sourceTree = "<group>";
 		};
 		A0540EFD2417390E009AC5A7 /* UserPage */ = {
@@ -175,6 +187,8 @@
 			children = (
 				A0540F0024173939009AC5A7 /* UserPageViewModel.h */,
 				A0540EFE2417392C009AC5A7 /* UserPageViewModel.m */,
+				A0540F17241A6B74009AC5A7 /* LoginPageViewModel.h */,
+				A0540F18241A6B80009AC5A7 /* LoginPageViewModel.m */,
 			);
 			path = UserPage;
 			sourceTree = "<group>";
@@ -206,11 +220,24 @@
 			path = RTRManager;
 			sourceTree = "<group>";
 		};
+		A0540F1A241A70A4009AC5A7 /* RTRBaseNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				A09B9E842403E7890038583E /* UINavigationController+Base.h */,
+				A09B9E852403E7890038583E /* UINavigationController+Base.m */,
+				A0540F1C241A716B009AC5A7 /* UIViewController+BackButtonHandler.h */,
+				A0540F1D241A7183009AC5A7 /* UIViewController+BackButtonHandler.m */,
+			);
+			path = RTRBaseNavigation;
+			sourceTree = "<group>";
+		};
 		A0927AF124051F22005DBD08 /* UserPage */ = {
 			isa = PBXGroup;
 			children = (
 				A0927AF424051F53005DBD08 /* UserPageViewController.h */,
 				A0927AF224051F45005DBD08 /* UserPageViewController.m */,
+				A0540F14241A6AD1009AC5A7 /* LoginPageViewController.h */,
+				A0540F15241A6AE6009AC5A7 /* LoginPageViewController.m */,
 			);
 			path = UserPage;
 			sourceTree = "<group>";
@@ -224,7 +251,7 @@
 			path = MainPage;
 			sourceTree = "<group>";
 		};
-		A0927AFA240F3FF4005DBD08 /* RTRTabBar */ = {
+		A0927AFA240F3FF4005DBD08 /* RTRBaseTabBar */ = {
 			isa = PBXGroup;
 			children = (
 				A0927AEE24051D46005DBD08 /* UITabBarController+Base.h */,
@@ -232,7 +259,7 @@
 				A0927AFD240F407B005DBD08 /* RTRTabBarItem.h */,
 				A0927AFB240F4059005DBD08 /* RTRTabBarItem.m */,
 			);
-			path = RTRTabBar;
+			path = RTRBaseTabBar;
 			sourceTree = "<group>";
 		};
 		A09B9E3C2400BBAF0038583E = {
@@ -339,10 +366,9 @@
 		A09B9E812403E5650038583E /* RTRBase */ = {
 			isa = PBXGroup;
 			children = (
-				A0540EF12413394E009AC5A7 /* UIView+Base */,
-				A0927AFA240F3FF4005DBD08 /* RTRTabBar */,
-				A09B9E842403E7890038583E /* UINavigationController+Base.h */,
-				A09B9E852403E7890038583E /* UINavigationController+Base.m */,
+				A0540F1A241A70A4009AC5A7 /* RTRBaseNavigation */,
+				A0540EF12413394E009AC5A7 /* RTRBaseView */,
+				A0927AFA240F3FF4005DBD08 /* RTRBaseTabBar */,
 				A0927AF9240EB611005DBD08 /* RTRDefine.h */,
 			);
 			path = RTRBase;
@@ -360,6 +386,8 @@
 		A09B9E832403E5740038583E /* RTRNet */ = {
 			isa = PBXGroup;
 			children = (
+				A0540F11241A19F6009AC5A7 /* RTRImgDerainNet.h */,
+				A0540F12241A1A09009AC5A7 /* RTRImgDerainNet.m */,
 			);
 			path = RTRNet;
 			sourceTree = "<group>";
@@ -573,15 +601,19 @@
 				A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */,
 				A0540F0424174171009AC5A7 /* AlbumPageViewController.m in Sources */,
 				A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */,
+				A0540F1E241A7183009AC5A7 /* UIViewController+BackButtonHandler.m in Sources */,
 				A0540EFF2417392C009AC5A7 /* UserPageViewModel.m in Sources */,
 				A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */,
 				A0540F0B24174E98009AC5A7 /* UserInfoModel.m in Sources */,
 				A0540F1024175289009AC5A7 /* RTRUserManager.m in Sources */,
 				A09B9E8B2403EB450038583E /* RTRTabBarController.m in Sources */,
 				A0540EF8241339BB009AC5A7 /* UIView+Shadow.m in Sources */,
+				A0540F19241A6B80009AC5A7 /* LoginPageViewModel.m in Sources */,
+				A0540F13241A1A09009AC5A7 /* RTRImgDerainNet.m in Sources */,
 				A09B9E5B2400BBB10038583E /* main.m in Sources */,
 				A0540F0824174DEA009AC5A7 /* UserInfoView.m in Sources */,
 				A09B9E862403E7890038583E /* UINavigationController+Base.m in Sources */,
+				A0540F16241A6AE6009AC5A7 /* LoginPageViewController.m in Sources */,
 				A09B9E4D2400BBB00038583E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

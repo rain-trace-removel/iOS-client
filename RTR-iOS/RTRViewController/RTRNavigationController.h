@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "../RTRBase/UINavigationController+Base.h"
+#import "UINavigationController+Base.h"
 
 @interface RTRNavigationController:UINavigationController
 
