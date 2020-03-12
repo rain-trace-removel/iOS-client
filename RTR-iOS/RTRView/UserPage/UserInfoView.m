@@ -9,6 +9,7 @@
 #import "UserInfoView.h"
 #import "Masonry/Masonry.h"
 #import "RTRDefine.h"
+#import "Colours.h"
 
 #define BUTTON_HEIGHT 110
 #define BUTTON_WIDTH BUTTON_HEIGHT
@@ -61,7 +62,7 @@
         make.height.equalTo(self);
     }];
     
-    [self.userLoginOrIconButton setBackgroundColor:RTRColorFromRGB(0xf38181)];
+    [self.userLoginOrIconButton setBackgroundColor:[UIColor pastelBlueColor]];
     [self.userLoginOrIconButton.layer setCornerRadius:BUTTON_HEIGHT/2];
     [self.userLoginOrIconButton addTarget:self action:@selector(loginButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.userLoginOrIconButton mas_remakeConstraints:^(MASConstraintMaker *make) {
