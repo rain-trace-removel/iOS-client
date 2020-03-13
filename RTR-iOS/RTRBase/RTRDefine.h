@@ -21,6 +21,8 @@
 
 #define rtr_statusBarFrame (@available(iOS 13.0, *) ? [UIApplication  sharedApplication].windows.firstObject.windowScene.statusBarManager.statusBarFrame : [UIApplication sharedApplication].statusBarFrame)
 
+#define rtr_isEmptyString(str) (!str || str==NULL || str ==nil || str.length==0)
+
 
 #import <UIKit/UIKit.h>
 

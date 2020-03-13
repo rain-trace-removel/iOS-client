@@ -13,8 +13,26 @@ typedef enum : NSUInteger {
     RTRLoginStyleRegister,
 } RTRLoginStyle;
 
+typedef enum : NSUInteger {
+    RTRResponseTypeUsernameEmpty,
+    RTRResponseTypeUsernameInvalid,
+    RTRResponseTypePasswordEmpty,
+    RTRResponseTypePasswordInvalid,
+    RTRResponseTypeConfirmPasswordNotMatch,
+    RTRResponseTypeRequesting,
+    RTRResponseTypeLoginFailed,
+    RTRResponseTypeRegisterFailed,
+    RTRResponseTypeLoginSuccessed,
+    RTRResponseTypeRegisterSuccessed,
+} RTRResponseTypeCode;
+
+
 @interface LoginPageViewModel : NSObject
 
 @property(nonatomic, assign) RTRLoginStyle loginStyle;
+
+- (void)loginStyleChange:(RTRLoginStyle)chageStyle;
+
+- (RTRResponseTypeCode)responseWhenClickedLoginButtonWithUserName:(NSString *)username password:(NSString *)password confirmPassword:(NSString *)confirmPassword;
 
 @end

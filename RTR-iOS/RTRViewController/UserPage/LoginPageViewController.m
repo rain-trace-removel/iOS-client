@@ -12,6 +12,7 @@
 #import "Colours.h"
 #import "UIViewController+BackButtonHandler.h"
 #import "RTRDefine.h"
+#import "YBImageBrowserTipView.h"
 
 @interface LoginPageViewController()
 
@@ -138,18 +139,27 @@
 #pragma mark SenderAction
 
 -(void)indexDidChangeForSegmentedControl:(UISegmentedControl *)sender {
-    NSInteger selecIndex = sender.selectedSegmentIndex;
-    switch (selecIndex) {
-        case 0:
-            self.loginPageViewModel.loginStyle = RTRLoginStyleLogin;
+    [self.loginPageViewModel loginStyleChange:((sender.selectedSegmentIndex == 0)?RTRLoginStyleLogin:RTRLoginStyleRegister)];
+    [self reloadView];
+}
+
+- (void)LoginButtonClick:(id)sender {
+    NSLog(@"LoginButtonClick");
+    RTRResponseTypeCode responseCode = [self.loginPageViewModel responseWhenClickedLoginButtonWithUserName:self.usernameInput.text password:self.passwordInput.text confirmPassword:self.againPasswordInput.text];
+    // todo:根据code进行视觉响应
+    switch (responseCode) {
+        case RTRResponseTypeUsernameEmpty:
+            [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"用户名为空"];
             break;
-        case 1:
-            self.loginPageViewModel.loginStyle = RTRLoginStyleRegister;
+        case RTRResponseTypePasswordEmpty:
+            [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"密码为空"];
+            break;
+        case RTRResponseTypeConfirmPasswordNotMatch:
+            [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"两次密码输入不一致"];
             break;
         default:
             break;
     }
-    [self reloadView];
 }
 
 
@@ -161,7 +171,7 @@
         _loginTitleLabel.textColor = [UIColor blackColor];
         _loginTitleLabel.textAlignment = NSTextAlignmentCenter;
         _loginTitleLabel.font = [UIFont systemFontOfSize:20];
-        [_loginTitleLabel setText:@"登陆你的Keepic，编辑更精彩影像"];
+        [_loginTitleLabel setText:@"登陆Keepic，让音视频更精彩"];
     }
     return _loginTitleLabel;
 }
