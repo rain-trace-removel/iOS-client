@@ -21,7 +21,7 @@
         self.hasLogin = NO;
         self.name = @"";
         self.token = @"";
-        self.icon = @"";
+        self.avatar = @"";
     }
     return self;
 }

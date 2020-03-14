@@ -24,4 +24,6 @@
 
 - (void)setBackgroundImg:(UIImage *)image;
 
+- (void)reloadView;
+
 @end

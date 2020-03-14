@@ -12,6 +12,7 @@
 #import "UserInfoView.h"
 #import "RTRImgDerainNet.h"
 #import "LoginPageViewController.h"
+#import "RTRUserManager.h"
 
 @interface UserPageViewController() <UserInfoViewDelegate, RTRImgDerainNetDelegate>
 
@@ -24,7 +25,7 @@
 @implementation UserPageViewController
 
 - (void)viewDidLoad {
-    [self reloadViewModel];
+    [self setupView];
 }
 
 - (instancetype)initWithViewModel: (UserPageViewModel*)viewModel {
@@ -35,10 +36,11 @@
     return self;
 }
 
+
 - (void)reloadViewModel {
-    // reload userPageViewModel
-    
-    [self setupView];
+    [self.userPageViewModel requestGettingUserInfoWithBlockSuccess:^(NSURLSessionDataTask *task, id responseObject) {
+        [self reloadView];
+    } failure:nil];
 }
 
 - (void)setupView {
@@ -54,8 +56,19 @@
     [self.label sizeToFit];
 }
 
+- (void)reloadView {
+    [self.userInfoView reloadView];
+}
+
 - (void)addUserInfoView {
     [self.view addSubview:self.userInfoView];
+}
+
+#pragma mark Life Cycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES];
+    [self reloadViewModel];
 }
 
 #pragma mark UserInfoViewDelegate
