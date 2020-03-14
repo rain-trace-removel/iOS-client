@@ -30,7 +30,7 @@
     else if (rtr_isEmptyString(password)) {
         return RTRResponseTypePasswordEmpty;
     }
-    else if (self.loginStyle == RTRLoginStyleRegister && confirmPassword != password) {
+    else if (self.loginStyle == RTRLoginStyleRegister && ![confirmPassword isEqualToString:password]) {
         return RTRResponseTypeConfirmPasswordNotMatch;
     }
     else if (self.loginStyle == RTRLoginStyleLogin) {
@@ -43,7 +43,12 @@
         return RTRResponseTypeRequesting;
     }
     else {
-        [self requestRegisterWithUserName:username password:password confirmPassword:confirmPassword];
+        [self requestRegisterWithUserName:username
+                                 password:password
+                          confirmPassword:confirmPassword
+                                  success:success
+                                  failure:failure];
+        
         return RTRResponseTypeRequesting;
     }
     return RTRResponseTypeRequesting;
@@ -82,8 +87,26 @@
     }];
 }
 
-- (void)requestRegisterWithUserName:(NSString *)username password:(NSString *)password confirmPassword:(NSString *)confirmPassword {
-    
+- (void)requestRegisterWithUserName:(NSString *)username
+                           password:(NSString *)password
+                    confirmPassword:(NSString *)confirmPassword
+                            success:(void (^)(NSURLSessionDataTask *, id))success
+                            failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
+{
+    [[RTRUserManager rtr_shareManager] rtr_registerWithUsername:username
+                                                       Password:password
+                                                        success:^(NSURLSessionDataTask *task, id responseObject)
+    {
+        success(task, responseObject);
+        rtr_log(@"login success!");
+        rtr_log(responseObject);
+    }
+                                                        failure:^(NSURLSessionDataTask *task, NSError *error)
+    {
+        failure(task, error);
+        rtr_log(@"login failed!");
+        rtr_log(error);
+    }];
 }
 
 @end

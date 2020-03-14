@@ -151,12 +151,22 @@
                                                                                            confirmPassword:self.againPasswordInput.text
                                                                                                    success:^(NSURLSessionDataTask *task, id responseObject)
     {
-        [[UIApplication sharedApplication].keyWindow yb_showHookTipView:[NSString stringWithFormat:@"欢迎回来, %@", self.usernameInput.text]];
-        [self popThisViewControllerr];
+        if (self.loginPageViewModel.loginStyle == RTRLoginStyleLogin) {
+            [[UIApplication sharedApplication].keyWindow yb_showHookTipView:[NSString stringWithFormat:@"欢迎登录, %@", self.usernameInput.text]];
+            [self popThisViewControllerr];
+        } else {
+            // 注册成功，直接后台帮忙登录
+            self.loginPageViewModel.loginStyle = RTRLoginStyleLogin;
+            [self LoginButtonClick:sender];
+        }
     }
                                                                                                    failure:^(NSURLSessionDataTask *task, NSError *error)
     {
-        [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"用户名或密码错误"];
+        if (self.loginPageViewModel.loginStyle == RTRLoginStyleLogin) {
+            [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"登录失败"];
+        } else {
+            [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"注册失败"];
+        }
     }];
     
     // 根据code进行视觉响应

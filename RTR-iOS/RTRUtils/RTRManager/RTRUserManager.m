@@ -13,6 +13,7 @@
 #define server_ip @"203.195.222.224"
 #define server_port @"3000"
 #define server_url_user_login @"/user/login"
+#define server_url_user_register @"/user/signup"
 
 static RTRUserManager *userManager = nil;
 
@@ -63,8 +64,34 @@ static RTRUserManager *userManager = nil;
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         success(task, responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        id responseObject = [NSJSONSerialization JSONObjectWithData:error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] options:0 error:nil];
-        failure(task, responseObject);
+        failure(task, error);
+    }];
+}
+
+- (void)rtr_registerWithUsername:(NSString *)username
+                        Password:(NSString *)password
+                         success:(void (^)(NSURLSessionDataTask *, id))success
+                         failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
+{
+    NSString *url = [NSString stringWithFormat:@"http://%@:%@%@", server_ip, server_port, server_url_user_register];
+    NSDictionary *parameters = @{@"username": username,
+                                 @"password": password,
+                                 @"telephone": @"123"
+    };
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    // 设置请求体为JSON
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    // 设置响应体为JSON
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager POST:url
+       parameters:parameters
+         progress:nil
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
+    {
+        success(task, responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error)
+    {
+        failure(task, error);
     }];
 }
 
