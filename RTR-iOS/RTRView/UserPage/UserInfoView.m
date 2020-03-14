@@ -41,13 +41,9 @@
         [self addSubview:self.loginLabel];
         [self addSubview:self.userNameLabel];
         [self.backgroundImageView addSubview:self.effectview];
-        [self setupView];
+        [self reloadView];
     }
     return self;
-}
-
-- (void)setupView {
-    
 }
 
 - (void)reloadView {

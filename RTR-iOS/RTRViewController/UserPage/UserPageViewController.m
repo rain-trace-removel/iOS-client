@@ -45,7 +45,7 @@
 
 - (void)setupView {
     [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-NAVIGATION_BAR_HEIGHT-TABBAR_HEIGHT)];
-    [self.view setBackgroundColor:[UIColor yellowColor]];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [self addUserInfoView];
     [self.view addSubview:self.label];
     [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
