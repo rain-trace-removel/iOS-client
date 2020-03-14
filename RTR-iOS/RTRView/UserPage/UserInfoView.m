@@ -10,6 +10,7 @@
 #import "Masonry/Masonry.h"
 #import "RTRDefine.h"
 #import "Colours.h"
+#import "RTRUserManager.h"
 
 #define BUTTON_HEIGHT 110
 #define BUTTON_WIDTH BUTTON_HEIGHT
@@ -46,7 +47,7 @@
 
 
 - (void)reloadView {
-    if (self.userInfoModel.isUserLogin) {
+    if ([[RTRUserManager rtr_shareManager] rtr_isLogin]) {
         [self reloadUserInfoView];
     } else {
         [self reloadUserLoginView];

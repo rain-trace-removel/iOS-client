@@ -8,10 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+#import "UserInfoModel.h"
+
 @interface RTRUserManager : NSObject
+
+@property(nonatomic, strong) UserInfoModel *user;
 
 + (instancetype)rtr_shareManager;
 
 - (BOOL)rtr_isLogin;
+
+- (void)rtr_loginWithUsername:(NSString *)username
+                     Password:(NSString *)password
+                     progress:(nullable void (^)(NSProgress * _Nonnull))uploadProgress
+                      success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                      failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end

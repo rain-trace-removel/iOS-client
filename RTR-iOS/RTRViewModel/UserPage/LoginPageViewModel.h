@@ -29,10 +29,15 @@ typedef enum : NSUInteger {
 
 @interface LoginPageViewModel : NSObject
 
+@property(nonatomic, weak) id holdVC;
 @property(nonatomic, assign) RTRLoginStyle loginStyle;
 
 - (void)loginStyleChange:(RTRLoginStyle)chageStyle;
 
-- (RTRResponseTypeCode)responseWhenClickedLoginButtonWithUserName:(NSString *)username password:(NSString *)password confirmPassword:(NSString *)confirmPassword;
+- (RTRResponseTypeCode)responseWhenClickedLoginButtonWithUserName:(NSString *)username
+                                                         password:(NSString *)password
+                                                  confirmPassword:(NSString *)confirmPassword
+                                                          success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                                                          failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end

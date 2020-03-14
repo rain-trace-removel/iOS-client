@@ -13,6 +13,7 @@
 #import "UIViewController+BackButtonHandler.h"
 #import "RTRDefine.h"
 #import "YBImageBrowserTipView.h"
+#import "RLog.h"
 
 @interface LoginPageViewController()
 
@@ -33,6 +34,7 @@
     if(self) {
         self.loginPageViewModel = viewModel;
         [self.view setBackgroundColor:[UIColor whiteColor]];
+        [self addTapGesture];
     }
     return self;
 }
@@ -131,8 +133,7 @@
 #pragma mark BackButtonHandlerProtocol
 
 - (BOOL)navigationShouldPopOnBackButton {
-    [self.navigationController setNavigationBarHidden:YES];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self popThisViewControllerr];
     return YES;
 }
 
@@ -145,8 +146,20 @@
 
 - (void)LoginButtonClick:(id)sender {
     NSLog(@"LoginButtonClick");
-    RTRResponseTypeCode responseCode = [self.loginPageViewModel responseWhenClickedLoginButtonWithUserName:self.usernameInput.text password:self.passwordInput.text confirmPassword:self.againPasswordInput.text];
-    // todo:根据code进行视觉响应
+    RTRResponseTypeCode responseCode = [self.loginPageViewModel responseWhenClickedLoginButtonWithUserName:self.usernameInput.text
+                                                                                                  password:self.passwordInput.text
+                                                                                           confirmPassword:self.againPasswordInput.text
+                                                                                                   success:^(NSURLSessionDataTask *task, id responseObject)
+    {
+        [[UIApplication sharedApplication].keyWindow yb_showHookTipView:[NSString stringWithFormat:@"欢迎回来, %@", self.usernameInput.text]];
+        [self popThisViewControllerr];
+    }
+                                                                                                   failure:^(NSURLSessionDataTask *task, NSError *error)
+    {
+        [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"用户名或密码错误"];
+    }];
+    
+    // 根据code进行视觉响应
     switch (responseCode) {
         case RTRResponseTypeUsernameEmpty:
             [[UIApplication sharedApplication].keyWindow yb_showForkTipView:@"用户名为空"];
@@ -162,6 +175,24 @@
     }
 }
 
+#pragma mark Private
+
+- (void)popThisViewControllerr {
+    [self.navigationController setNavigationBarHidden:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)addTapGesture {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(reKeyBoard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+- (void)reKeyBoard
+{
+    [self.usernameInput resignFirstResponder];
+    [self.passwordInput resignFirstResponder];
+    [self.againPasswordInput resignFirstResponder];
+}
 
 #pragma mark Getter & Setter
 

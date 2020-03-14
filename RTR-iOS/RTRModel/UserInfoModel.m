@@ -14,8 +14,16 @@
 
 @implementation UserInfoModel
 
-- (BOOL)isUserLogin {
-    return [[RTRUserManager rtr_shareManager] rtr_isLogin];
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.hasLogin = NO;
+        self.name = @"";
+        self.token = @"";
+        self.icon = @"";
+    }
+    return self;
 }
 
 @end

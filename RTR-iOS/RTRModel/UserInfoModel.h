@@ -12,7 +12,9 @@
 
 @property(nonatomic, assign) NSString *name;
 @property(nonatomic, assign) NSString *icon;
+@property(nonatomic, assign) NSString *token;
+@property(nonatomic, assign) BOOL hasLogin;
 
-- (BOOL)isUserLogin;
+
 
 @end

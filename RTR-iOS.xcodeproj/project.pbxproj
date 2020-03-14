@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,7 @@
 		A0540F16241A6AE6009AC5A7 /* LoginPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F15241A6AE6009AC5A7 /* LoginPageViewController.m */; };
 		A0540F19241A6B80009AC5A7 /* LoginPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F18241A6B80009AC5A7 /* LoginPageViewModel.m */; };
 		A0540F1E241A7183009AC5A7 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A0540F1D241A7183009AC5A7 /* UIViewController+BackButtonHandler.m */; };
+		A0649B0A241C77CB00BF484A /* RLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A0649B09241C77CB00BF484A /* RLog.m */; };
 		A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */; };
 		A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AF224051F45005DBD08 /* UserPageViewController.m */; };
 		A0927AF7240E5223005DBD08 /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0927AF6240E5223005DBD08 /* MainPageViewController.m */; };
@@ -85,6 +86,8 @@
 		A0540F18241A6B80009AC5A7 /* LoginPageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginPageViewModel.m; sourceTree = "<group>"; };
 		A0540F1C241A716B009AC5A7 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		A0540F1D241A7183009AC5A7 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		A0649B08241C777400BF484A /* RLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLog.h; sourceTree = "<group>"; };
+		A0649B09241C77CB00BF484A /* RLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLog.m; sourceTree = "<group>"; };
 		A0927AEE24051D46005DBD08 /* UITabBarController+Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITabBarController+Base.h"; sourceTree = "<group>"; };
 		A0927AEF24051D46005DBD08 /* UITabBarController+Base.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITabBarController+Base.m"; sourceTree = "<group>"; };
 		A0927AF224051F45005DBD08 /* UserPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserPageViewController.m; sourceTree = "<group>"; };
@@ -231,6 +234,15 @@
 			path = RTRBaseNavigation;
 			sourceTree = "<group>";
 		};
+		A0649B07241C775A00BF484A /* RTRBaseLog */ = {
+			isa = PBXGroup;
+			children = (
+				A0649B08241C777400BF484A /* RLog.h */,
+				A0649B09241C77CB00BF484A /* RLog.m */,
+			);
+			path = RTRBaseLog;
+			sourceTree = "<group>";
+		};
 		A0927AF124051F22005DBD08 /* UserPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +378,7 @@
 		A09B9E812403E5650038583E /* RTRBase */ = {
 			isa = PBXGroup;
 			children = (
+				A0649B07241C775A00BF484A /* RTRBaseLog */,
 				A0540F1A241A70A4009AC5A7 /* RTRBaseNavigation */,
 				A0540EF12413394E009AC5A7 /* RTRBaseView */,
 				A0927AFA240F3FF4005DBD08 /* RTRBaseTabBar */,
@@ -615,6 +628,7 @@
 				A0927AF7240E5223005DBD08 /* MainPageViewController.m in Sources */,
 				A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */,
 				A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */,
+				A0649B0A241C77CB00BF484A /* RLog.m in Sources */,
 				A0540EFB24134B9D009AC5A7 /* UIView+Location.m in Sources */,
 				A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */,
 				A0540F0424174171009AC5A7 /* AlbumPageViewController.m in Sources */,
