@@ -34,6 +34,7 @@ static RTRUserManager *userManager = nil;
     self = [super init];
     if (self) {
         self.user = [[UserInfoModel alloc] init];
+        self.userProfile = [[UserProfileModel alloc] init];
     }
     return self;
 }

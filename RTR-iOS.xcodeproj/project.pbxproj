@@ -37,6 +37,10 @@
 		A09B9E862403E7890038583E /* UINavigationController+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E852403E7890038583E /* UINavigationController+Base.m */; };
 		A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E872403E8B20038583E /* RTRNavigationController.m */; };
 		A09B9E8B2403EB450038583E /* RTRTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A09B9E8A2403EB450038583E /* RTRTabBarController.m */; };
+		A0FA9377241D3615003C2598 /* UserProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9376241D3615003C2598 /* UserProfileView.m */; };
+		A0FA937A241D3743003C2598 /* UserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9379241D3743003C2598 /* UserProfileModel.m */; };
+		A0FA937E241DAE3B003C2598 /* UserProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA937D241DAE3B003C2598 /* UserProfileTableViewCell.m */; };
+		A0FA9381241DBA93003C2598 /* UserProfileTableViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9380241DBA93003C2598 /* UserProfileTableViewHeaderCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,14 @@
 		A09B9E892403E8C90038583E /* RTRNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRNavigationController.h; sourceTree = "<group>"; };
 		A09B9E8A2403EB450038583E /* RTRTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTRTabBarController.m; sourceTree = "<group>"; };
 		A09B9E8C2403EB550038583E /* RTRTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRTabBarController.h; sourceTree = "<group>"; };
+		A0FA9375241D3608003C2598 /* UserProfileView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileView.h; sourceTree = "<group>"; };
+		A0FA9376241D3615003C2598 /* UserProfileView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileView.m; sourceTree = "<group>"; };
+		A0FA9378241D372F003C2598 /* UserProfileModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileModel.h; sourceTree = "<group>"; };
+		A0FA9379241D3743003C2598 /* UserProfileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileModel.m; sourceTree = "<group>"; };
+		A0FA937C241DAE2C003C2598 /* UserProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileTableViewCell.h; sourceTree = "<group>"; };
+		A0FA937D241DAE3B003C2598 /* UserProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileTableViewCell.m; sourceTree = "<group>"; };
+		A0FA937F241DBA7D003C2598 /* UserProfileTableViewHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileTableViewHeaderCell.h; sourceTree = "<group>"; };
+		A0FA9380241DBA93003C2598 /* UserProfileTableViewHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileTableViewHeaderCell.m; sourceTree = "<group>"; };
 		A8467B24823D43CA41132E19 /* libPods-RTR-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTR-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2409B3BF9AC3CE2B25A2AD /* Pods-RTR-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RTR-iOSTests/Pods-RTR-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +222,9 @@
 			children = (
 				A0540F0624174DDD009AC5A7 /* UserInfoView.h */,
 				A0540F0724174DEA009AC5A7 /* UserInfoView.m */,
+				A0FA9375241D3608003C2598 /* UserProfileView.h */,
+				A0FA9376241D3615003C2598 /* UserProfileView.m */,
+				A0FA937B241DAE08003C2598 /* UserProfileDetail */,
 			);
 			path = UserPage;
 			sourceTree = "<group>";
@@ -363,6 +378,8 @@
 			children = (
 				A0540F0924174E8C009AC5A7 /* UserInfoModel.h */,
 				A0540F0A24174E98009AC5A7 /* UserInfoModel.m */,
+				A0FA9378241D372F003C2598 /* UserProfileModel.h */,
+				A0FA9379241D3743003C2598 /* UserProfileModel.m */,
 			);
 			path = RTRModel;
 			sourceTree = "<group>";
@@ -403,6 +420,17 @@
 				A0540F12241A1A09009AC5A7 /* RTRImgDerainNet.m */,
 			);
 			path = RTRNet;
+			sourceTree = "<group>";
+		};
+		A0FA937B241DAE08003C2598 /* UserProfileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA937C241DAE2C003C2598 /* UserProfileTableViewCell.h */,
+				A0FA937D241DAE3B003C2598 /* UserProfileTableViewCell.m */,
+				A0FA937F241DBA7D003C2598 /* UserProfileTableViewHeaderCell.h */,
+				A0FA9380241DBA93003C2598 /* UserProfileTableViewHeaderCell.m */,
+			);
+			path = UserProfileDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -629,6 +657,8 @@
 				A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */,
 				A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */,
 				A0649B0A241C77CB00BF484A /* RLog.m in Sources */,
+				A0FA9381241DBA93003C2598 /* UserProfileTableViewHeaderCell.m in Sources */,
+				A0FA937E241DAE3B003C2598 /* UserProfileTableViewCell.m in Sources */,
 				A0540EFB24134B9D009AC5A7 /* UIView+Location.m in Sources */,
 				A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */,
 				A0540F0424174171009AC5A7 /* AlbumPageViewController.m in Sources */,
@@ -636,8 +666,10 @@
 				A0540F1E241A7183009AC5A7 /* UIViewController+BackButtonHandler.m in Sources */,
 				A0540EFF2417392C009AC5A7 /* UserPageViewModel.m in Sources */,
 				A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */,
+				A0FA9377241D3615003C2598 /* UserProfileView.m in Sources */,
 				A0540F0B24174E98009AC5A7 /* UserInfoModel.m in Sources */,
 				A0540F1024175289009AC5A7 /* RTRUserManager.m in Sources */,
+				A0FA937A241D3743003C2598 /* UserProfileModel.m in Sources */,
 				A09B9E8B2403EB450038583E /* RTRTabBarController.m in Sources */,
 				A0540EF8241339BB009AC5A7 /* UIView+Shadow.m in Sources */,
 				A0540F19241A6B80009AC5A7 /* LoginPageViewModel.m in Sources */,

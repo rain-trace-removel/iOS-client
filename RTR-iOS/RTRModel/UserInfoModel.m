@@ -6,7 +6,6 @@
 //  Copyright © 2020 chenbb6. All rights reserved.
 //
 #import "UserInfoModel.h"
-#import "RTRUserManager.h"
 
 @interface UserInfoModel()
 

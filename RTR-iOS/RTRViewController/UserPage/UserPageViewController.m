@@ -13,10 +13,12 @@
 #import "RTRImgDerainNet.h"
 #import "LoginPageViewController.h"
 #import "RTRUserManager.h"
+#import "UserProfileView.h"
 
 @interface UserPageViewController() <UserInfoViewDelegate, RTRImgDerainNetDelegate>
 
 @property(nonatomic, strong) UserInfoView *userInfoView;
+@property(nonatomic, strong) UserProfileView *userProfileView;
 @property(nonatomic, strong) UserPageViewModel *userPageViewModel;
 @property(nonatomic, strong) UILabel *label;
 
@@ -46,22 +48,19 @@
 - (void)setupView {
     [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-NAVIGATION_BAR_HEIGHT-TABBAR_HEIGHT)];
     [self.view setBackgroundColor:[UIColor whiteColor]];
-    [self addUserInfoView];
-    [self.view addSubview:self.label];
-    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
-        make.height.mas_equalTo(30);
-    }];
-    [self.label setText:@"等待指令"];
-    [self.label sizeToFit];
+    [self.view addSubview:self.userInfoView];
+    [self.view addSubview:self.userProfileView];
+//    [self.view addSubview:self.label];
+//    [self.label mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.center.equalTo(self.view);
+//        make.height.mas_equalTo(30);
+//    }];
+//    [self.label setText:@"等待指令"];
+//    [self.label sizeToFit];
 }
 
 - (void)reloadView {
     [self.userInfoView reloadView];
-}
-
-- (void)addUserInfoView {
-    [self.view addSubview:self.userInfoView];
 }
 
 #pragma mark Life Cycle
@@ -120,7 +119,12 @@
     return _label;
 }
 
-
+- (UserProfileView *)userProfileView {
+    if (_userProfileView == nil) {
+        _userProfileView = [[UserProfileView alloc] initWithFrame:CGRectMake(0, 300, SCREEN_WIDTH, SCREEN_HEIGHT-300-TABBAR_HEIGHT)];
+    }
+    return _userProfileView;
+}
 
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "UserInfoModel.h"
+#import "UserProfileModel.h"
 
 #define server_ip @"203.195.222.224"
 #define server_port @"3000"
@@ -23,6 +24,7 @@
 @interface RTRUserManager : NSObject
 
 @property(nonatomic, strong) UserInfoModel *user;
+@property(nonatomic, strong) UserProfileModel *userProfile;
 
 + (instancetype)rtr_shareManager;
 
