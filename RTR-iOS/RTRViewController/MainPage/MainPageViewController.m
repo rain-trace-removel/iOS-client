@@ -13,7 +13,7 @@
 #import "MainPageFunctionEntriesView.h"
 #import <SDWebImage/SDWebImage.h>
 
-@interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource>
+@interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource, MainPageFunctionEntriesViewDelegate>
 
 @property(nonatomic, strong) MainPageViewModel *mainPageViewModel;
 @property(nonatomic, strong) UITableView *mainPageTableView;
@@ -39,6 +39,25 @@
 - (void)setupView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:self.mainPageTableView];
+}
+
+#pragma mark MainPageFunctionEntriesViewDelegate
+
+- (void)didClickedEntryItemWithModel:(MainPageFunctionModel *)model {
+    rtr_log(model.title);
+    if (model.type == TypeCameraPhoto) {
+        
+    } else if (model.type == TypePictureEdit) {
+        
+    } else if (model.type == TypeVideoEdit) {
+        
+    } else if (model.type == TypePictureDerain) {
+        
+    } else if (model.type == TypePictureBorder) {
+        
+    } else if (model.type == TypeUserVIPService) {
+        
+    }
 }
 
 #pragma mark UITableViewDataSource
@@ -74,6 +93,7 @@
     else if (indexPath.section == 1) {
         // 功能模块入口页
         MainPageFunctionEntriesView *funcitonEntriesCell = [[MainPageFunctionEntriesView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
+        funcitonEntriesCell.delegate = self;
         [funcitonEntriesCell reloadViewWithModelArray:[MainPageViewModel shareInstance].functionModuleArray itemsNumInOneLine:3];
         [cell setFrame:funcitonEntriesCell.frame];
         [cell addSubview:funcitonEntriesCell];

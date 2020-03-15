@@ -10,11 +10,11 @@
 #define MainPageFunctionModel_h
 
 typedef enum NSUInteger {
-    TypePCameraPhoto,
+    TypeCameraPhoto,
     TypePictureEdit,
     TypeVideoEdit,
     TypePictureDerain,
-    TypePicturePictureBorder,
+    TypePictureBorder,
     TypeUserVIPService
 }FunctionModelType;
 

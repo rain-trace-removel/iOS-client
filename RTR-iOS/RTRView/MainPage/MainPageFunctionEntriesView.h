@@ -9,8 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "MainPageFunctionModel.h"
 
+@protocol MainPageFunctionEntriesViewDelegate <NSObject>
+
+- (void)didClickedEntryItemWithModel:(MainPageFunctionModel *)model;
+
+@end
+
 @interface MainPageFunctionEntriesView : UIView
 
+
+@property (nonatomic, weak) id<MainPageFunctionEntriesViewDelegate> delegate;
 @property(nonatomic, assign) CGFloat count_height;
 
 - (instancetype)initWithFrame:(CGRect)frame;

@@ -147,7 +147,7 @@ static RTRUserManager *userManager = nil;
         self.user.name = responseObject[@"username"];
         self.user.token = token;
         self.user.hasLogin = YES;
-        
+        rtr_log(responseObject);
         [[UIApplication sharedApplication].keyWindow yb_showHookTipView:[NSString stringWithFormat:@"欢迎回来, %@", self.user.name]];
     } failure:nil];
 }

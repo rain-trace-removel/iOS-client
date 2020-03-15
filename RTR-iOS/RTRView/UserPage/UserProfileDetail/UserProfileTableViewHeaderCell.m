@@ -24,6 +24,7 @@
     if (self) {
         [self addSubview:self.title];
         [self setupView];
+        [self setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
 }
@@ -46,7 +47,7 @@
     if (_title == nil) {
         _title = [[UILabel alloc] init];
         [_title setText:@"通用"];
-        [_title setFont:[UIFont systemFontOfSize:30]];
+        [_title setFont:[UIFont systemFontOfSize:22]];
         [_title setTextAlignment:NSTextAlignmentLeft];
         [_title setNumberOfLines: 0];
     }

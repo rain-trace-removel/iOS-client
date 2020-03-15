@@ -88,7 +88,8 @@
     if (_titleContent == nil) {
         _titleContent = [[UILabel alloc] init];
         [_titleContent setText:@"标题"];
-        [_titleContent setFont:[UIFont systemFontOfSize:23]];
+        [_titleContent setTextColor:[UIColor lightGrayColor]];
+        [_titleContent setFont:[UIFont boldSystemFontOfSize:15]];
         [_titleContent setTextAlignment:NSTextAlignmentLeft];
         [_titleContent setNumberOfLines: 0];
     }
@@ -99,7 +100,8 @@
     if (_addtionTitle == nil) {
         _addtionTitle = [[UILabel alloc] init];
         [_addtionTitle setText:@"更多信息"];
-        [_addtionTitle setFont:[UIFont systemFontOfSize:23]];
+        [_addtionTitle setTextColor:[UIColor lightGrayColor]];
+        [_addtionTitle setFont:[UIFont systemFontOfSize:15]];
         [_addtionTitle setTextAlignment:NSTextAlignmentLeft];
         [_addtionTitle setNumberOfLines: 0];
     }

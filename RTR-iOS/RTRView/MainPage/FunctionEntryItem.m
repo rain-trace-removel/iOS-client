@@ -31,6 +31,8 @@
         [self addSubview:self.entryImageView];
         [self addSubview:self.entryNameLabel];
         [self reloadView];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewTapped:)];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -62,6 +64,12 @@
     [self.entryNameLabel setText:self.model.title];
     [self.entryNameLabel sizeToFit];
 
+}
+
+- (void)imageViewTapped:(UITapGestureRecognizer *)tap {
+    if ([_delegate respondsToSelector:@selector(didClickedEntryItemWithModel:)]) {
+        [_delegate didClickedEntryItemWithModel:self.model];
+    }
 }
 
 - (UIImageView *)backgroundView {

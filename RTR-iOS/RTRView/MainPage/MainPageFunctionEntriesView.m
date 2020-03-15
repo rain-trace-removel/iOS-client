@@ -20,7 +20,7 @@
 #define margin_cell_ver 15
 #define default_num_in_one_line 3
 
-@interface MainPageFunctionEntriesView ()
+@interface MainPageFunctionEntriesView () <FunctionEntryItemViewDelegate>
 
 @end
 
@@ -57,6 +57,7 @@
                 CGFloat x = margin_left + j * (cell_width + margin_cell_hor);
                 CGFloat y = margin_top + i * (cell_width + margin_cell_ver);
                 FunctionEntryItem *item = [[FunctionEntryItem alloc] initWithFrame:CGRectMake(x, y, cell_width, cell_width) andModel:[modelArray objectAtIndex:count]];
+                item.delegate = self;
                 [self addSubview:item];
             }
         }
@@ -71,6 +72,14 @@
     CGRect cell_frame = self.frame;
     cell_frame.size.height = self.count_height;
     [self setFrame:cell_frame];
+}
+
+#pragma mark FunctionEntryItemViewDelegate
+
+- (void)didClickedEntryItemWithModel:(MainPageFunctionModel *)model {
+    if ([_delegate respondsToSelector:@selector(didClickedEntryItemWithModel:)]) {
+        [_delegate didClickedEntryItemWithModel:model];
+    }
 }
 
 @end

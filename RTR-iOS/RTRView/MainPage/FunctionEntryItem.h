@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "MainPageFunctionModel.h"
-#import "MainPageFunctionModel.h"
+
+@protocol FunctionEntryItemViewDelegate <NSObject>
+
+- (void)didClickedEntryItemWithModel:(MainPageFunctionModel *)model;
+
+@end
 
 @interface FunctionEntryItem : UIView
+
+@property (nonatomic, weak) id<FunctionEntryItemViewDelegate> delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame andModel:(MainPageFunctionModel *)model;
 
