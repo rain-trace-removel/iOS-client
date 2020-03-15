@@ -11,6 +11,7 @@
 #import "RTRDefine.h"
 #import "RLog.h"
 #import "MainPageFunctionEntriesView.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -66,6 +67,9 @@
     [cell setBackgroundColor:randomColor];
     if (indexPath.section == 0) {
         // 轮播Banner页
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 200)];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:@"http://www.jmxdtv.com/uploadfiles/image/201901/50.jpg?1584263180969"] placeholderImage:nil];
+        [cell addSubview:imageView];
     }
     else if (indexPath.section == 1) {
         // 功能模块入口页
@@ -93,6 +97,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     rtr_log(indexPath);
+    if (indexPath.section == 0) {
+        NSURL *applink = [NSURL URLWithString:[NSString stringWithFormat:@"itms-apps://apps.apple.com/cn/app/id1142110895"]];
+        [[UIApplication sharedApplication] openURL:applink options:@{} completionHandler:nil];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -131,9 +139,6 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return nil;
-//    UserProfileTableViewHeaderCell *headerCell = [[UserProfileTableViewHeaderCell alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 100)];
-//    [headerCell reloadViewWithTitle:(section == 0) ? @"通用" : @"关于Keepic"];
-//    return headerCell;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -153,6 +158,5 @@
     }
     return _mainPageTableView;
 }
-
 
 @end
