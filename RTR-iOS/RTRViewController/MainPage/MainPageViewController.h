@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainPageViewModel.h"
 
 @interface MainPageViewController:UIViewController
+
+- (instancetype)initWithViewModel: (MainPageViewModel *)viewModel;
 
 
 @end

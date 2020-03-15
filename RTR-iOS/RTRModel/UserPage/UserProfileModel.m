@@ -21,7 +21,7 @@
 {
     self = [super init];
     if (self) {
-        ProfileItem settingItem1 = {@"icon_app", @"个人信息", @"", ItemTypeWithNavigation};
+        ProfileItem settingItem1 = {@"icon_app", @"个人设置", @"", ItemTypeWithNavigation};
         ProfileItem settingItem2 = {@"icon_app", @"VIP服务", @"", ItemTypeWithNavigation};
         ProfileItem settingItem3 = {@"icon_app", @"版本信息", @"1.0.0", ItemTypeWithAddtion};
         NSValue *s1 = [NSValue valueWithBytes:&settingItem1 objCType:@encode(struct ProfileItem)];

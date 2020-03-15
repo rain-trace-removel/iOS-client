@@ -32,14 +32,16 @@
 - (void)setupView {
     [self.view setBackgroundColor:[UIColor whiteColor]];
     [self.tabBar setHidden:YES];
-    [self reloadViewWithTags:@[@"首页", @"编辑", @"我的"] Images:@[@"icon_home_page", @"icon_edit_page", @"icon_user_page"] VCArray:@[self.mainPageVC, self.albumPageVC, self.userPageVC]];
+//    [self reloadViewWithTags:@[@"首页", @"编辑", @"我的"] Images:@[@"icon_home_page", @"icon_edit_page", @"icon_user_page"] VCArray:@[self.mainPageVC, self.albumPageVC, self.userPageVC]];
+    [self reloadViewWithTags:@[@"首页", @"我的"] Images:@[@"icon_home_page", @"icon_user_page"] VCArray:@[self.mainPageVC, self.userPageVC]];
+
 }
 
 # pragma mark Getter&Setter
 
 - (MainPageViewController *)mainPageVC {
     if(_mainPageVC == nil) {
-        _mainPageVC = [[MainPageViewController alloc] init];
+        _mainPageVC = [[MainPageViewController alloc] initWithViewModel:[MainPageViewModel shareInstance]];
 //        [_mainPageVC.view setFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-TABBAR_HEIGHT)];
 
     }

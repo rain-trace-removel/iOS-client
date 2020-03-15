@@ -43,6 +43,8 @@
         _profileTableView.delegate = self;
         _profileTableView.dataSource = self;
         _profileTableView.showsVerticalScrollIndicator = NO;
+        _profileTableView.separatorStyle = UITableViewCellAccessoryNone;
+
     }
     return _profileTableView;
 }

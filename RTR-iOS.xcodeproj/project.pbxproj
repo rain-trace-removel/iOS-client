@@ -41,6 +41,9 @@
 		A0FA937A241D3743003C2598 /* UserProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9379241D3743003C2598 /* UserProfileModel.m */; };
 		A0FA937E241DAE3B003C2598 /* UserProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA937D241DAE3B003C2598 /* UserProfileTableViewCell.m */; };
 		A0FA9381241DBA93003C2598 /* UserProfileTableViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9380241DBA93003C2598 /* UserProfileTableViewHeaderCell.m */; };
+		A0FA9385241DC5C5003C2598 /* MainPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9384241DC5C5003C2598 /* MainPageViewModel.m */; };
+		A0FA938A241DCD8D003C2598 /* MainPageFunctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9389241DCD8D003C2598 /* MainPageFunctionModel.m */; };
+		A0FA938E241DE324003C2598 /* MainPageFunctionEntriesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA938D241DE324003C2598 /* MainPageFunctionEntriesView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +134,12 @@
 		A0FA937D241DAE3B003C2598 /* UserProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileTableViewCell.m; sourceTree = "<group>"; };
 		A0FA937F241DBA7D003C2598 /* UserProfileTableViewHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserProfileTableViewHeaderCell.h; sourceTree = "<group>"; };
 		A0FA9380241DBA93003C2598 /* UserProfileTableViewHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserProfileTableViewHeaderCell.m; sourceTree = "<group>"; };
+		A0FA9383241DC5AD003C2598 /* MainPageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageViewModel.h; sourceTree = "<group>"; };
+		A0FA9384241DC5C5003C2598 /* MainPageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageViewModel.m; sourceTree = "<group>"; };
+		A0FA9388241DCD7F003C2598 /* MainPageFunctionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageFunctionModel.h; sourceTree = "<group>"; };
+		A0FA9389241DCD8D003C2598 /* MainPageFunctionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageFunctionModel.m; sourceTree = "<group>"; };
+		A0FA938C241DE30E003C2598 /* MainPageFunctionEntriesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageFunctionEntriesView.h; sourceTree = "<group>"; };
+		A0FA938D241DE324003C2598 /* MainPageFunctionEntriesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageFunctionEntriesView.m; sourceTree = "<group>"; };
 		A8467B24823D43CA41132E19 /* libPods-RTR-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTR-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2409B3BF9AC3CE2B25A2AD /* Pods-RTR-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RTR-iOSTests/Pods-RTR-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -368,6 +377,7 @@
 		A09B9E7E2403E4F50038583E /* RTRViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A0FA9382241DC57A003C2598 /* MainPage */,
 				A0540EFD2417390E009AC5A7 /* UserPage */,
 			);
 			path = RTRViewModel;
@@ -376,10 +386,8 @@
 		A09B9E7F2403E4FE0038583E /* RTRModel */ = {
 			isa = PBXGroup;
 			children = (
-				A0540F0924174E8C009AC5A7 /* UserInfoModel.h */,
-				A0540F0A24174E98009AC5A7 /* UserInfoModel.m */,
-				A0FA9378241D372F003C2598 /* UserProfileModel.h */,
-				A0FA9379241D3743003C2598 /* UserProfileModel.m */,
+				A0FA9387241DCCDB003C2598 /* MainPage */,
+				A0FA9386241DCCC7003C2598 /* UserPage */,
 			);
 			path = RTRModel;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 		A09B9E802403E52D0038583E /* RTRView */ = {
 			isa = PBXGroup;
 			children = (
+				A0FA938B241DE2AA003C2598 /* MainPage */,
 				A0540F0524174DA9009AC5A7 /* UserPage */,
 			);
 			path = RTRView;
@@ -431,6 +440,44 @@
 				A0FA9380241DBA93003C2598 /* UserProfileTableViewHeaderCell.m */,
 			);
 			path = UserProfileDetail;
+			sourceTree = "<group>";
+		};
+		A0FA9382241DC57A003C2598 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA9383241DC5AD003C2598 /* MainPageViewModel.h */,
+				A0FA9384241DC5C5003C2598 /* MainPageViewModel.m */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		A0FA9386241DCCC7003C2598 /* UserPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0540F0924174E8C009AC5A7 /* UserInfoModel.h */,
+				A0540F0A24174E98009AC5A7 /* UserInfoModel.m */,
+				A0FA9378241D372F003C2598 /* UserProfileModel.h */,
+				A0FA9379241D3743003C2598 /* UserProfileModel.m */,
+			);
+			path = UserPage;
+			sourceTree = "<group>";
+		};
+		A0FA9387241DCCDB003C2598 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA9388241DCD7F003C2598 /* MainPageFunctionModel.h */,
+				A0FA9389241DCD8D003C2598 /* MainPageFunctionModel.m */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		A0FA938B241DE2AA003C2598 /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA938C241DE30E003C2598 /* MainPageFunctionEntriesView.h */,
+				A0FA938D241DE324003C2598 /* MainPageFunctionEntriesView.m */,
+			);
+			path = MainPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,6 +707,8 @@
 				A0FA9381241DBA93003C2598 /* UserProfileTableViewHeaderCell.m in Sources */,
 				A0FA937E241DAE3B003C2598 /* UserProfileTableViewCell.m in Sources */,
 				A0540EFB24134B9D009AC5A7 /* UIView+Location.m in Sources */,
+				A0FA938A241DCD8D003C2598 /* MainPageFunctionModel.m in Sources */,
+				A0FA9385241DC5C5003C2598 /* MainPageViewModel.m in Sources */,
 				A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */,
 				A0540F0424174171009AC5A7 /* AlbumPageViewController.m in Sources */,
 				A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */,
@@ -667,6 +716,7 @@
 				A0540EFF2417392C009AC5A7 /* UserPageViewModel.m in Sources */,
 				A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */,
 				A0FA9377241D3615003C2598 /* UserProfileView.m in Sources */,
+				A0FA938E241DE324003C2598 /* MainPageFunctionEntriesView.m in Sources */,
 				A0540F0B24174E98009AC5A7 /* UserInfoModel.m in Sources */,
 				A0540F1024175289009AC5A7 /* RTRUserManager.m in Sources */,
 				A0FA937A241D3743003C2598 /* UserProfileModel.m in Sources */,

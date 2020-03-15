@@ -27,7 +27,7 @@ static UserPageViewModel *userPageViewModel = nil;
                                        failure:(void (^)(NSURLSessionDataTask *, NSError *))failure
 {
     // 用户未登录
-    if (rtr_isEmptyString([RTRUserManager rtr_shareManager].user.token)) {
+    if (rtr_isEmptyString([RTRUserManager rtr_shareManager].user.token) || rtr_isEmptyString([RTRUserManager rtr_shareManager].user.name)) {
         rtr_log(@"get user info failed because user didn't login!");
         return;
     }
