@@ -10,6 +10,7 @@
 #import "MainPageFunctionEntriesView.h"
 #import "MainPageViewModel.h"
 #import "FunctionEntryItem.h"
+#import "RTRDefine.h"
 
 #define margin_left 25
 #define margin_right 25

@@ -35,11 +35,11 @@ static MainPageViewModel *mainPageViewModel = nil;
 }
 
 - (void)initData {
-    MainPageFunctionModel *m1 = [[MainPageFunctionModel alloc] initWithIcon:@"icon_app" Title:@"相机拍摄" Type:TypePCameraPhoto];
-    MainPageFunctionModel *m2 = [[MainPageFunctionModel alloc] initWithIcon:@"icon_app" Title:@"图像编辑" Type:TypePictureEdit];
-    MainPageFunctionModel *m3 = [[MainPageFunctionModel alloc] initWithIcon:@"icon_app" Title:@"视频编辑" Type:TypePCameraPhoto];
-    MainPageFunctionModel *m4 = [[MainPageFunctionModel alloc] initWithIcon:@"icon_app" Title:@"图像去雨" Type:TypePCameraPhoto];
-    MainPageFunctionModel *m5 = [[MainPageFunctionModel alloc] initWithIcon:@"icon_app" Title:@"图像边框" Type:TypePCameraPhoto];
+    MainPageFunctionModel *m1 = [[MainPageFunctionModel alloc] initWithIcon:@"icon-camera-photo-entry" Title:@"相机拍摄" Type:TypePCameraPhoto];
+    MainPageFunctionModel *m2 = [[MainPageFunctionModel alloc] initWithIcon:@"icon-picture-edit-entry" Title:@"图像编辑" Type:TypePictureEdit];
+    MainPageFunctionModel *m3 = [[MainPageFunctionModel alloc] initWithIcon:@"icon-video-edit-entry" Title:@"视频编辑" Type:TypePCameraPhoto];
+    MainPageFunctionModel *m4 = [[MainPageFunctionModel alloc] initWithIcon:@"icon-picture-derain-entry" Title:@"图像去雨" Type:TypePCameraPhoto];
+    MainPageFunctionModel *m5 = [[MainPageFunctionModel alloc] initWithIcon:@"icon-picture-border-entry" Title:@"图像边框" Type:TypePCameraPhoto];
     MainPageFunctionModel *m6 = [[MainPageFunctionModel alloc] initWithIcon:@"icon_app" Title:@"VIP SERVICE" Type:TypePCameraPhoto];
     self.functionModuleArray = [NSMutableArray arrayWithArray:@[m1,m2,m3,m4,m5,m6]];
     [self.mainPageModelArrArray addObject:self.functionModuleArray];
