@@ -16,7 +16,6 @@ typedef enum NSUInteger {
     TypePictureDerain,
     TypePicturePictureBorder,
     TypeUserVIPService
-    
 }FunctionModelType;
 
 @interface MainPageFunctionModel : NSObject

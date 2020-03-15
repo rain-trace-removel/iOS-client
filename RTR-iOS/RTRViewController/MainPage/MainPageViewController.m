@@ -10,6 +10,7 @@
 #import "MainPageViewController.h"
 #import "RTRDefine.h"
 #import "RLog.h"
+#import "MainPageFunctionEntriesView.h"
 
 @interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource>
 
@@ -68,7 +69,10 @@
     }
     else if (indexPath.section == 1) {
         // 功能模块入口页
-        
+        MainPageFunctionEntriesView *funcitonEntriesCell = [[MainPageFunctionEntriesView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 0)];
+        [funcitonEntriesCell reloadViewWithModelArray:[MainPageViewModel shareInstance].functionModuleArray itemsNumInOneLine:3];
+        [cell setFrame:funcitonEntriesCell.frame];
+        [cell addSubview:funcitonEntriesCell];
     }
     else if (indexPath.section == 2) {
         // 广告页
@@ -93,12 +97,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat height;
+    if (indexPath.section == 1) {
+        UITableViewCell *cell = [self tableView: _mainPageTableView cellForRowAtIndexPath: indexPath];
+        return cell.frame.size.height;
+    }
     switch (indexPath.section) {
         case 0:
             height = 200;
             break;
         case 1:
-            height = 260;
+            height = 44;
             break;
         case 2:
             height = 260;
@@ -111,9 +119,6 @@
             break;
     }
     return height;
-//    UITableViewCell *cell = [self tableView: _mainPageTableView cellForRowAtIndexPath: indexPath];
-//    return cell.frame.size.height;
-//    return 80;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {

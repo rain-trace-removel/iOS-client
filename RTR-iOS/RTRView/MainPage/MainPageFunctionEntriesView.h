@@ -6,8 +6,18 @@
 //  Copyright © 2020 chenbb6. All rights reserved.
 //
 
-#ifndef MainPageFunctionEntriesView_h
-#define MainPageFunctionEntriesView_h
+#import <UIKit/UIKit.h>
+#import "MainPageFunctionModel.h"
 
+@interface MainPageFunctionEntriesView : UIView
 
-#endif /* MainPageFunctionEntriesView_h */
+@property(nonatomic, assign) CGFloat count_height;
+
+- (instancetype)initWithFrame:(CGRect)frame;
+
+- (void)reloadViewWithModelArray:(NSMutableArray<MainPageFunctionModel *> *)modelArray itemsNumInOneLine:(NSUInteger)num;
+
+- (void)fitCellFrame;
+
+@end
+
