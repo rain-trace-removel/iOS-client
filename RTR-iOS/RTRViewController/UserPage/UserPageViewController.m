@@ -66,8 +66,10 @@
 #pragma mark Life Cycle
 
 - (void)viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:YES];
     [self reloadViewModel];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:YES];
 }
 
 #pragma mark UserInfoViewDelegate
