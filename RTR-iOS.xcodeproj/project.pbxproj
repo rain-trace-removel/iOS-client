@@ -50,6 +50,8 @@
 		A0FA939D241F6B37003C2598 /* DerainEditPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA939C241F6B37003C2598 /* DerainEditPageViewModel.m */; };
 		A0FA93A0241F6DB2003C2598 /* EditPageNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA939F241F6DB2003C2598 /* EditPageNavigationBar.m */; };
 		A0FA93A4241F7C68003C2598 /* UIImageView+AutoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA93A3241F7C68003C2598 /* UIImageView+AutoSize.m */; };
+		A0FA93A8241FDD0A003C2598 /* CameraImagePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA93A7241FDD0A003C2598 /* CameraImagePickerViewController.m */; };
+		A0FA93AC241FE372003C2598 /* CameraPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA93AB241FE372003C2598 /* CameraPageViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +160,10 @@
 		A0FA939F241F6DB2003C2598 /* EditPageNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditPageNavigationBar.m; sourceTree = "<group>"; };
 		A0FA93A2241F7C68003C2598 /* UIImageView+AutoSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AutoSize.h"; sourceTree = "<group>"; };
 		A0FA93A3241F7C68003C2598 /* UIImageView+AutoSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AutoSize.m"; sourceTree = "<group>"; };
+		A0FA93A6241FDCF2003C2598 /* CameraImagePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraImagePickerViewController.h; sourceTree = "<group>"; };
+		A0FA93A7241FDD0A003C2598 /* CameraImagePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraImagePickerViewController.m; sourceTree = "<group>"; };
+		A0FA93AA241FE364003C2598 /* CameraPageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraPageViewModel.h; sourceTree = "<group>"; };
+		A0FA93AB241FE372003C2598 /* CameraPageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraPageViewModel.m; sourceTree = "<group>"; };
 		A8467B24823D43CA41132E19 /* libPods-RTR-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTR-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2409B3BF9AC3CE2B25A2AD /* Pods-RTR-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RTR-iOSTests/Pods-RTR-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -304,6 +310,7 @@
 				A0927AF8240E5230005DBD08 /* MainPageViewController.h */,
 				A0927AF6240E5223005DBD08 /* MainPageViewController.m */,
 				A0FA9396241F68BD003C2598 /* DerainPage */,
+				A0FA93A5241FDCA5003C2598 /* CameraPage */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -470,6 +477,7 @@
 				A0FA9383241DC5AD003C2598 /* MainPageViewModel.h */,
 				A0FA9384241DC5C5003C2598 /* MainPageViewModel.m */,
 				A0FA939A241F6B14003C2598 /* DerainPage */,
+				A0FA93A9241FE354003C2598 /* CameraPage */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -532,6 +540,24 @@
 				A0FA939C241F6B37003C2598 /* DerainEditPageViewModel.m */,
 			);
 			path = DerainPage;
+			sourceTree = "<group>";
+		};
+		A0FA93A5241FDCA5003C2598 /* CameraPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA93A6241FDCF2003C2598 /* CameraImagePickerViewController.h */,
+				A0FA93A7241FDD0A003C2598 /* CameraImagePickerViewController.m */,
+			);
+			path = CameraPage;
+			sourceTree = "<group>";
+		};
+		A0FA93A9241FE354003C2598 /* CameraPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA93AA241FE364003C2598 /* CameraPageViewModel.h */,
+				A0FA93AB241FE372003C2598 /* CameraPageViewModel.m */,
+			);
+			path = CameraPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -759,8 +785,10 @@
 				A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */,
 				A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */,
 				A0FA93A4241F7C68003C2598 /* UIImageView+AutoSize.m in Sources */,
+				A0FA93AC241FE372003C2598 /* CameraPageViewModel.m in Sources */,
 				A0649B0A241C77CB00BF484A /* RLog.m in Sources */,
 				A0FA9381241DBA93003C2598 /* UserProfileTableViewHeaderCell.m in Sources */,
+				A0FA93A8241FDD0A003C2598 /* CameraImagePickerViewController.m in Sources */,
 				A0FA937E241DAE3B003C2598 /* UserProfileTableViewCell.m in Sources */,
 				A0540EFB24134B9D009AC5A7 /* UIView+Location.m in Sources */,
 				A0FA938A241DCD8D003C2598 /* MainPageFunctionModel.m in Sources */,

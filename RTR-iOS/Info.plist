@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSCameraUsageDescription</key>
+	<string>应用需要您的权限才能打开&quot;相机&quot;</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>应用需要您的权限才能打开&quot;相册&quot;</string>
 	<key>LSApplicationQueriesSchemes</key>

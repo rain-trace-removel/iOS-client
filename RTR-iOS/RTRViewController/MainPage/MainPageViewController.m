@@ -14,6 +14,8 @@
 #import <SDWebImage/SDWebImage.h>
 #import <TZImagePickerController.h>
 #import "DerainEditPageViewController.h"
+#import "CameraImagePickerViewController.h"
+#import "CameraPageViewModel.h"
 
 @interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource, MainPageFunctionEntriesViewDelegate, TZImagePickerControllerDelegate>
 
@@ -51,7 +53,7 @@
     rtr_log(model.title);
     self.clickedType = model.type;
     if (model.type == TypeCameraPhoto) {
-        
+        [self didClickedCameraPhotoEntry];
     } else if (model.type == TypePictureBorder || model.type == TypePictureDerain || model.type == TypePictureEdit) {
         TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
         // 是否显示可选原图按钮
@@ -60,6 +62,9 @@
         imagePicker.allowPickingVideo = NO;
         // 是否允许显示图片
         imagePicker.allowPickingImage = YES;
+        // 禁止用户在这里拍照
+        imagePicker.allowTakePicture = NO;
+        imagePicker.allowTakeVideo = NO;
         
         [self presentViewController:imagePicker animated:YES completion:nil];
     } else if (model.type == TypeVideoEdit) {
@@ -70,6 +75,10 @@
         imagePicker.allowPickingVideo = YES;
         // 是否允许显示图片
         imagePicker.allowPickingImage = NO;
+        // 禁止用户在这里拍照
+        imagePicker.allowTakePicture = NO;
+        imagePicker.allowTakeVideo = NO;
+        
         [self presentViewController:imagePicker animated:YES completion:nil];
     } else if (model.type == TypeUserVIPService) {
         
@@ -192,6 +201,69 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return nil;
+}
+
+#pragma mark Private
+
+- (void)didClickedCameraPhotoEntry {
+    AVAuthorizationStatus status = [CameraPageViewModel cameraAuthorizationStatusAuthorized];
+    if (status == AVAuthorizationStatusAuthorized) {
+        [self.navigationController pushViewController:[[CameraImagePickerViewController alloc] init] animated:YES];
+    } else if (status == AVAuthorizationStatusDenied || status == AVAuthorizationStatusRestricted) {
+        [CameraPageViewModel requestCameraAuthorizationWithCompletion:^(BOOL granted) {
+            // 无权限
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"\"RTR-iOS\"想访问您的相机" message:@"\n应用需要您的权限才能打开\"相机\"" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                // 跳转设置
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+                });
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"不允许" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:cancelAction];
+            [alert addAction:confirmAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }];
+        [CameraPageViewModel requestCameraAuthorizationWithCompletion:nil];
+    } else if (status == AVAuthorizationStatusNotDetermined) {
+        // 第一次使用
+        [CameraPageViewModel requestCameraAuthorizationWithCompletion:^(BOOL granted) {
+            if (granted) {
+                [self.navigationController pushViewController:[[CameraImagePickerViewController alloc] init] animated:YES];
+            }
+        }];
+        
+    }
+}
+
+/// 查询相册权限
+- (BOOL)authorizationStatusAuthorized {
+    NSInteger status = [PHPhotoLibrary authorizationStatus];
+    if (status == 0) {
+        /**
+         * 当某些情况下AuthorizationStatus == AuthorizationStatusNotDetermined时，无法弹出系统首次使用的授权alertView，系统应用设置里亦没有相册的设置，此时将无法使用，故作以下操作，弹出系统首次使用的授权alertView
+         */
+        [self requestAuthorizationWithCompletion:nil];
+    }
+    
+    return status == 3;
+}
+
+// 请求相册权限
+- (void)requestAuthorizationWithCompletion:(void (^)(void))completion {
+    void (^callCompletionBlock)(void) = ^(){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion();
+            }
+        });
+    };
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            callCompletionBlock();
+        }];
+    });
 }
 
 #pragma mark Getter & Setter
