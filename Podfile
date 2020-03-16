@@ -11,9 +11,10 @@ target 'RTR-iOS' do
   pod 'Colours', '~> 5.13.0'
   pod 'Masonry', '~> 1.1.0'
   pod 'AFNetworking', '~> 3.2.1'
-  pod 'SDWebImage'
-  pod 'TZImagePickerController'
+  pod 'SDWebImage', '~> 5.0.3'
+  pod 'TZImagePickerController', '~> 3.2.0'
   pod 'YBImageBrowser', '~> 2.1.7'
+  pod 'MBProgressHUD', '~> 1.1.0'
   
   target 'RTR-iOSTests' do
     inherit! :search_paths

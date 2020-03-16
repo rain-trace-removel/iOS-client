@@ -14,7 +14,6 @@
     [self setImage:image];
     CGFloat imgWidth = CGImageGetWidth(image.CGImage);
     CGFloat imgHeight = CGImageGetHeight(image.CGImage);
-    NSLog(@"cbcbcbcbbcbcb");
     CGFloat resizeWidth;
     CGFloat resizeHeight;
     if (width/imgWidth > height/imgHeight) {

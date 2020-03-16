@@ -140,7 +140,7 @@
 - (UIButton *)nextStepButton {
     if (_nextStepButton == nil) {
         _nextStepButton = [[UIButton alloc] init];
-        [_nextStepButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_nextStepButton addTarget:self action:@selector(nextStepButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_nextStepButton setImage:[UIImage imageNamed:@"editpagebar-nextstep"] forState:UIControlStateNormal];
     }
     return _nextStepButton;
@@ -149,7 +149,7 @@
 - (UIButton *)preStepButton {
     if (_preStepButton == nil) {
         _preStepButton = [[UIButton alloc] init];
-        [_preStepButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_preStepButton addTarget:self action:@selector(preStepButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_preStepButton setImage:[UIImage imageNamed:@"editpagebar-prestep"] forState:UIControlStateNormal];
     }
     return _preStepButton;
@@ -158,7 +158,7 @@
 - (UIButton *)saveButton {
     if (_saveButton == nil) {
         _saveButton = [[UIButton alloc] init];
-        [_saveButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [_saveButton addTarget:self action:@selector(saveButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         [_saveButton setImage:[UIImage imageNamed:@"editpagebar-save"] forState:UIControlStateNormal];
     }
     return _saveButton;

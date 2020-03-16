@@ -20,6 +20,7 @@
 @property(nonatomic, strong) MainPageViewModel *mainPageViewModel;
 @property(nonatomic, strong) UITableView *mainPageTableView;
 @property(nonatomic, strong) NSString *identifier;
+@property(nonatomic, assign) FunctionModelType clickedType;
 
 @end
 
@@ -29,6 +30,7 @@
     self = [super init];
     if(self) {
         self.mainPageViewModel = viewModel;
+        self.clickedType = TypeCameraPhoto;
         self.identifier = [NSString stringWithFormat:@"%s", __FILE__];
     }
     return self;
@@ -47,6 +49,7 @@
 
 - (void)didClickedEntryItemWithModel:(MainPageFunctionModel *)model {
     rtr_log(model.title);
+    self.clickedType = model.type;
     if (model.type == TypeCameraPhoto) {
         
     } else if (model.type == TypePictureBorder || model.type == TypePictureDerain || model.type == TypePictureEdit) {
@@ -76,12 +79,14 @@
 #pragma mark TZImagePickerControllerDelegate
 
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto {
-    DerainEditPageViewController *derainEditPage = [[DerainEditPageViewController alloc] init];
-    [derainEditPage.view setFrame:self.view.frame];
-    DerainEditPageViewModel *derainEditPageViewModel = [[DerainEditPageViewModel alloc] init];
-    derainEditPageViewModel.original_image = photos.firstObject;
-    [derainEditPage reloadViewWithModel:derainEditPageViewModel];
-    [self.navigationController pushViewController:derainEditPage animated:YES];
+    if (self.clickedType == TypePictureDerain) {
+        DerainEditPageViewController *derainEditPage = [[DerainEditPageViewController alloc] init];
+        [derainEditPage.view setFrame:self.view.frame];
+        DerainEditPageViewModel *derainEditPageViewModel = [[DerainEditPageViewModel alloc] init];
+        derainEditPageViewModel.original_image = photos.firstObject;
+        [derainEditPage reloadViewWithModel:derainEditPageViewModel];
+        [self.navigationController pushViewController:derainEditPage animated:YES];
+    }
 }
 
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset {
