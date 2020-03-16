@@ -45,6 +45,11 @@
 		A0FA938A241DCD8D003C2598 /* MainPageFunctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9389241DCD8D003C2598 /* MainPageFunctionModel.m */; };
 		A0FA938E241DE324003C2598 /* MainPageFunctionEntriesView.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA938D241DE324003C2598 /* MainPageFunctionEntriesView.m */; };
 		A0FA9391241E00E8003C2598 /* FunctionEntryItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9390241E00E8003C2598 /* FunctionEntryItem.m */; };
+		A0FA9395241F58A5003C2598 /* RTRPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9394241F58A5003C2598 /* RTRPageViewController.m */; };
+		A0FA9399241F6904003C2598 /* DerainEditPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA9398241F6904003C2598 /* DerainEditPageViewController.m */; };
+		A0FA939D241F6B37003C2598 /* DerainEditPageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA939C241F6B37003C2598 /* DerainEditPageViewModel.m */; };
+		A0FA93A0241F6DB2003C2598 /* EditPageNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA939F241F6DB2003C2598 /* EditPageNavigationBar.m */; };
+		A0FA93A4241F7C68003C2598 /* UIImageView+AutoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FA93A3241F7C68003C2598 /* UIImageView+AutoSize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +148,16 @@
 		A0FA938D241DE324003C2598 /* MainPageFunctionEntriesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageFunctionEntriesView.m; sourceTree = "<group>"; };
 		A0FA938F241E00DA003C2598 /* FunctionEntryItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FunctionEntryItem.h; sourceTree = "<group>"; };
 		A0FA9390241E00E8003C2598 /* FunctionEntryItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FunctionEntryItem.m; sourceTree = "<group>"; };
+		A0FA9393241F5894003C2598 /* RTRPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RTRPageViewController.h; sourceTree = "<group>"; };
+		A0FA9394241F58A5003C2598 /* RTRPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RTRPageViewController.m; sourceTree = "<group>"; };
+		A0FA9397241F68F2003C2598 /* DerainEditPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DerainEditPageViewController.h; sourceTree = "<group>"; };
+		A0FA9398241F6904003C2598 /* DerainEditPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DerainEditPageViewController.m; sourceTree = "<group>"; };
+		A0FA939B241F6B28003C2598 /* DerainEditPageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DerainEditPageViewModel.h; sourceTree = "<group>"; };
+		A0FA939C241F6B37003C2598 /* DerainEditPageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DerainEditPageViewModel.m; sourceTree = "<group>"; };
+		A0FA939E241F6D9D003C2598 /* EditPageNavigationBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditPageNavigationBar.h; sourceTree = "<group>"; };
+		A0FA939F241F6DB2003C2598 /* EditPageNavigationBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditPageNavigationBar.m; sourceTree = "<group>"; };
+		A0FA93A2241F7C68003C2598 /* UIImageView+AutoSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AutoSize.h"; sourceTree = "<group>"; };
+		A0FA93A3241F7C68003C2598 /* UIImageView+AutoSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AutoSize.m"; sourceTree = "<group>"; };
 		A8467B24823D43CA41132E19 /* libPods-RTR-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RTR-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF2409B3BF9AC3CE2B25A2AD /* Pods-RTR-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTR-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-RTR-iOSTests/Pods-RTR-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +220,8 @@
 				A0540EF7241339BB009AC5A7 /* UIView+Shadow.m */,
 				A0540EF924134B9D009AC5A7 /* UIView+Location.h */,
 				A0540EFA24134B9D009AC5A7 /* UIView+Location.m */,
+				A0FA93A2241F7C68003C2598 /* UIImageView+AutoSize.h */,
+				A0FA93A3241F7C68003C2598 /* UIImageView+AutoSize.m */,
 			);
 			path = RTRBaseView;
 			sourceTree = "<group>";
@@ -286,6 +303,7 @@
 			children = (
 				A0927AF8240E5230005DBD08 /* MainPageViewController.h */,
 				A0927AF6240E5223005DBD08 /* MainPageViewController.m */,
+				A0FA9396241F68BD003C2598 /* DerainPage */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -407,6 +425,7 @@
 		A09B9E812403E5650038583E /* RTRBase */ = {
 			isa = PBXGroup;
 			children = (
+				A0FA9392241F5869003C2598 /* RTRBasePageViewController */,
 				A0649B07241C775A00BF484A /* RTRBaseLog */,
 				A0540F1A241A70A4009AC5A7 /* RTRBaseNavigation */,
 				A0540EF12413394E009AC5A7 /* RTRBaseView */,
@@ -450,6 +469,7 @@
 			children = (
 				A0FA9383241DC5AD003C2598 /* MainPageViewModel.h */,
 				A0FA9384241DC5C5003C2598 /* MainPageViewModel.m */,
+				A0FA939A241F6B14003C2598 /* DerainPage */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -481,8 +501,37 @@
 				A0FA938D241DE324003C2598 /* MainPageFunctionEntriesView.m */,
 				A0FA938F241E00DA003C2598 /* FunctionEntryItem.h */,
 				A0FA9390241E00E8003C2598 /* FunctionEntryItem.m */,
+				A0FA939E241F6D9D003C2598 /* EditPageNavigationBar.h */,
+				A0FA939F241F6DB2003C2598 /* EditPageNavigationBar.m */,
 			);
 			path = MainPage;
+			sourceTree = "<group>";
+		};
+		A0FA9392241F5869003C2598 /* RTRBasePageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA9393241F5894003C2598 /* RTRPageViewController.h */,
+				A0FA9394241F58A5003C2598 /* RTRPageViewController.m */,
+			);
+			path = RTRBasePageViewController;
+			sourceTree = "<group>";
+		};
+		A0FA9396241F68BD003C2598 /* DerainPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA9397241F68F2003C2598 /* DerainEditPageViewController.h */,
+				A0FA9398241F6904003C2598 /* DerainEditPageViewController.m */,
+			);
+			path = DerainPage;
+			sourceTree = "<group>";
+		};
+		A0FA939A241F6B14003C2598 /* DerainPage */ = {
+			isa = PBXGroup;
+			children = (
+				A0FA939B241F6B28003C2598 /* DerainEditPageViewModel.h */,
+				A0FA939C241F6B37003C2598 /* DerainEditPageViewModel.m */,
+			);
+			path = DerainPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -709,19 +758,24 @@
 				A0FA9391241E00E8003C2598 /* FunctionEntryItem.m in Sources */,
 				A0927AF324051F45005DBD08 /* UserPageViewController.m in Sources */,
 				A0927AF024051D46005DBD08 /* UITabBarController+Base.m in Sources */,
+				A0FA93A4241F7C68003C2598 /* UIImageView+AutoSize.m in Sources */,
 				A0649B0A241C77CB00BF484A /* RLog.m in Sources */,
 				A0FA9381241DBA93003C2598 /* UserProfileTableViewHeaderCell.m in Sources */,
 				A0FA937E241DAE3B003C2598 /* UserProfileTableViewCell.m in Sources */,
 				A0540EFB24134B9D009AC5A7 /* UIView+Location.m in Sources */,
 				A0FA938A241DCD8D003C2598 /* MainPageFunctionModel.m in Sources */,
+				A0FA9395241F58A5003C2598 /* RTRPageViewController.m in Sources */,
 				A0FA9385241DC5C5003C2598 /* MainPageViewModel.m in Sources */,
 				A0927AFC240F4059005DBD08 /* RTRTabBarItem.m in Sources */,
 				A0540F0424174171009AC5A7 /* AlbumPageViewController.m in Sources */,
 				A09B9E882403E8B20038583E /* RTRNavigationController.m in Sources */,
+				A0FA9399241F6904003C2598 /* DerainEditPageViewController.m in Sources */,
 				A0540F1E241A7183009AC5A7 /* UIViewController+BackButtonHandler.m in Sources */,
 				A0540EFF2417392C009AC5A7 /* UserPageViewModel.m in Sources */,
 				A09B9E4A2400BBB00038583E /* AppDelegate.m in Sources */,
 				A0FA9377241D3615003C2598 /* UserProfileView.m in Sources */,
+				A0FA939D241F6B37003C2598 /* DerainEditPageViewModel.m in Sources */,
+				A0FA93A0241F6DB2003C2598 /* EditPageNavigationBar.m in Sources */,
 				A0FA938E241DE324003C2598 /* MainPageFunctionEntriesView.m in Sources */,
 				A0540F0B24174E98009AC5A7 /* UserInfoModel.m in Sources */,
 				A0540F1024175289009AC5A7 /* RTRUserManager.m in Sources */,

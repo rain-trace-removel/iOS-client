@@ -12,8 +12,10 @@
 #import "RLog.h"
 #import "MainPageFunctionEntriesView.h"
 #import <SDWebImage/SDWebImage.h>
+#import <TZImagePickerController.h>
+#import "DerainEditPageViewController.h"
 
-@interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource, MainPageFunctionEntriesViewDelegate>
+@interface MainPageViewController() <UITableViewDelegate, UITableViewDataSource, MainPageFunctionEntriesViewDelegate, TZImagePickerControllerDelegate>
 
 @property(nonatomic, strong) MainPageViewModel *mainPageViewModel;
 @property(nonatomic, strong) UITableView *mainPageTableView;
@@ -47,17 +49,43 @@
     rtr_log(model.title);
     if (model.type == TypeCameraPhoto) {
         
-    } else if (model.type == TypePictureEdit) {
+    } else if (model.type == TypePictureBorder || model.type == TypePictureDerain || model.type == TypePictureEdit) {
+        TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+        // 是否显示可选原图按钮
+        imagePicker.allowPickingOriginalPhoto = NO;
+        // 是否允许显示视频
+        imagePicker.allowPickingVideo = NO;
+        // 是否允许显示图片
+        imagePicker.allowPickingImage = YES;
         
+        [self presentViewController:imagePicker animated:YES completion:nil];
     } else if (model.type == TypeVideoEdit) {
-        
-    } else if (model.type == TypePictureDerain) {
-        
-    } else if (model.type == TypePictureBorder) {
-        
+        TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
+        // 是否显示可选原图按钮
+        imagePicker.allowPickingOriginalPhoto = NO;
+        // 是否允许显示视频
+        imagePicker.allowPickingVideo = YES;
+        // 是否允许显示图片
+        imagePicker.allowPickingImage = NO;
+        [self presentViewController:imagePicker animated:YES completion:nil];
     } else if (model.type == TypeUserVIPService) {
         
     }
+}
+
+#pragma mark TZImagePickerControllerDelegate
+
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto {
+    DerainEditPageViewController *derainEditPage = [[DerainEditPageViewController alloc] init];
+    [derainEditPage.view setFrame:self.view.frame];
+    DerainEditPageViewModel *derainEditPageViewModel = [[DerainEditPageViewModel alloc] init];
+    derainEditPageViewModel.original_image = photos.firstObject;
+    [derainEditPage reloadViewWithModel:derainEditPageViewModel];
+    [self.navigationController pushViewController:derainEditPage animated:YES];
+}
+
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset {
+    rtr_log(coverImage);
 }
 
 #pragma mark UITableViewDataSource
@@ -104,10 +132,6 @@
     else if (indexPath.section == 3) {
         // 灵感与交流页
     }
-//    UserProfileTableViewCell *cell_view = [[UserProfileTableViewCell alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 80)];
-//    [cell_view reloadViewWithProfileItem:[[RTRUserManager rtr_shareManager].userProfile readProfileItemWithSection:indexPath.section Item:indexPath.item]];
-//    [cell addSubview:cell_view];
-    
     return cell;
 }
 

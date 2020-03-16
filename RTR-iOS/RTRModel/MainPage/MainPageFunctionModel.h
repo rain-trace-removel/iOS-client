@@ -10,12 +10,12 @@
 #define MainPageFunctionModel_h
 
 typedef enum NSUInteger {
-    TypeCameraPhoto,
-    TypePictureEdit,
-    TypeVideoEdit,
-    TypePictureDerain,
-    TypePictureBorder,
-    TypeUserVIPService
+    TypeCameraPhoto     = 1,
+    TypePictureEdit     = 1<<1,
+    TypeVideoEdit       = 1<<2,
+    TypePictureDerain   = 1<<3,
+    TypePictureBorder   = 1<<4,
+    TypeUserVIPService  = 1<<5
 }FunctionModelType;
 
 @interface MainPageFunctionModel : NSObject

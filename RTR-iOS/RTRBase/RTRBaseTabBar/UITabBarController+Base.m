@@ -34,7 +34,7 @@
     self.tabBarItemTags = tags;
     self.tabBarItemImages = images;
     self.tabPageVCArray = VCArray;
-    [self setViewControllers:VCArray];
+    [self setViewControllers:VCArray animated:YES];
     
     [self.RTRTabBar setBackgroundColor:[UIColor whiteColor]];
     [self.RTRTabBar.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];

@@ -133,7 +133,7 @@
 #pragma mark BackButtonHandlerProtocol
 
 - (BOOL)navigationShouldPopOnBackButton {
-    [self popThisViewControllerr];
+    [self popThisViewController];
     return YES;
 }
 
@@ -153,7 +153,7 @@
     {
         if (self.loginPageViewModel.loginStyle == RTRLoginStyleLogin) {
             [[UIApplication sharedApplication].keyWindow yb_showHookTipView:[NSString stringWithFormat:@"欢迎登录, %@", self.usernameInput.text]];
-            [self popThisViewControllerr];
+            [self popThisViewController];
         } else {
             // 注册成功，直接后台帮忙登录
             self.loginPageViewModel.loginStyle = RTRLoginStyleLogin;
@@ -187,7 +187,7 @@
 
 #pragma mark Private
 
-- (void)popThisViewControllerr {
+- (void)popThisViewController {
     [self.navigationController setNavigationBarHidden:YES];
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -40,6 +40,7 @@
 - (UITableView *)profileTableView {
     if(_profileTableView == nil) {
         _profileTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height) style:UITableViewStyleGrouped];
+        [_profileTableView setBackgroundColor:[UIColor whiteColor]];
         _profileTableView.delegate = self;
         _profileTableView.dataSource = self;
         _profileTableView.showsVerticalScrollIndicator = NO;
@@ -87,11 +88,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return 60;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 100;
+    return 80;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
